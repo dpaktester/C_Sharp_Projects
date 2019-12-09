@@ -1,0 +1,82 @@
+﻿2019-11-20T17:00:38.5636973+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-20T17:00:38.5636973+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-20T17:00:38.5636973+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-20T17:00:38.6006741+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-20T17:00:38.6016740+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-20T17:00:38.6016740+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-20T17:00:38.6266587+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-20T170038.log
+2019-11-20T17:00:38.6426492+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-20T17:00:38.6536427+05:30;Thread#14;Info;Checking license
+2019-11-20T17:00:38.6716316+05:30;Thread#14;Info;Evaluation mode: test execution starts in 6 seconds... (this delay is removed in the registered version)
+2019-11-20T17:00:44.6729696+05:30;Thread#14;Info;Evaluation delay finished.
+2019-11-20T17:00:44.6779663+05:30;Thread#14;Info;License check completed
+2019-11-20T17:00:44.6789648+05:30;Thread#14;Info;starting test run
+2019-11-20T17:00:44.7079473+05:30;Thread#14;Info;Discovering target: Default
+2019-11-20T17:00:44.7079473+05:30;Thread#14;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-20T17:00:45.9981602+05:30:Appdomain Disposed
+2019-11-20T17:00:45.9981602+05:30;Thread#14;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-20T17:00:45.9981602+05:30:Test Suite Dump
+2019-11-20T17:00:46.0001594+05:30:#0: Unnamed project/ - 
+2019-11-20T17:00:46.0001594+05:30:#1: Default - 
+2019-11-20T17:00:46.0001594+05:30:#2: VeevaCRM - 
+2019-11-20T17:00:46.0001594+05:30:#3: Veeva CRM Account Page Feature - 
+2019-11-20T17:00:46.0951004+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-11-20T17:00:46.0951004+05:30:#5: Checking the the veiw drop down in Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+veiw+drop+down+in+Accounts+page
+2019-11-20T17:00:46.0951004+05:30:#6: checking the data for commercial channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+commercial+channel
+2019-11-20T17:00:46.0951004+05:30:#7: Check the data for Account Detail for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Account+Detail+for+commercial+view
+2019-11-20T17:00:46.0951004+05:30:#8: Check weather the Account Details name is same as AccountName or not  for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+weather+the+Account+Details+name+is+same+as+AccountName+or+not++for+commercial+view
+2019-11-20T17:00:46.0951004+05:30:#9: Check Formulary for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+Formulary+for+commercial+view
+2019-11-20T17:00:46.0951004+05:30:#10: Check the Coverage Policy items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Coverage+Policy+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#11: Check the pharmacy Services items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+pharmacy+Services+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#12: Check the Plan Products items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Plan+Products+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#13: Check the Specialty Providers items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Specialty+Providers+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#14: Check the (Member Of) of items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+(Member+Of)+of+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#15: Check the Member items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Member+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#16: Check the Address items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Address+items+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#17: Check the Account Plan for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Account+Plan+for+Commercial+View
+2019-11-20T17:00:46.0951004+05:30:#18: Check the View Hierarchy button for All View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+View+Hierarchy+button+for+All+View
+2019-11-20T17:00:46.0951004+05:30:#19: checking the data for Employer channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Employer+channel
+2019-11-20T17:00:46.0951004+05:30:#20: checking the data for PBM channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+PBM+channel
+2019-11-20T17:00:46.0951004+05:30:#21: checking the data for Specialty Provider channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Specialty+Provider+channel
+2019-11-20T17:00:46.0951004+05:30:#22: checking the data for State Medicaid channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+State+Medicaid+channel
+2019-11-20T17:00:46.0951004+05:30:#23: checking the data for Tricare channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Tricare+channel
+2019-11-20T17:00:46.0951004+05:30:#24: checking the data for VA channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+VA+channel
+2019-11-20T17:00:46.0951004+05:30:#25: checking the data for Medicare channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Medicare+channel
+2019-11-20T17:00:46.0951004+05:30:#26: checking the data for My Accounts - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+My+Accounts
+2019-11-20T17:00:46.0951004+05:30:#27: checking the data for Parent Accounts - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Parent+Accounts
+2019-11-20T17:00:46.0951004+05:30:#28: Check the data for Employer view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Employer+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#29: Check the data for Medicare view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Medicare+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#30: Check the data for Parent Accounts view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Parent+Accounts+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#31: Check the data for My Accounts view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+My+Accounts+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#32: Check the data for PBM view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+PBM+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#33: Check the data for Specialty view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Specialty+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#34: Check the data for State Medicaid view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+State+Medicaid+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#35: Check the data for Tricare view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Tricare+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#36: Check the data for VA view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+VA+view+in+all+the+items
+2019-11-20T17:00:46.0951004+05:30:#37: Check the buttons in My Accounts screen - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+buttons+in+My+Accounts+screen
+2019-11-20T17:00:46.0951004+05:30:#38: Check the Hover of elements in My Accounts Page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Hover+of+elements+in+My+Accounts+Page
+2019-11-20T17:00:46.0951004+05:30:#39: Check the Account Plan of elements in My Accounts Page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Account+Plan+of+elements+in+My+Accounts+Page
+2019-11-20T17:00:46.0960999+05:30:End: Test Suite Dump
+2019-11-20T17:00:46.1250826+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-20T17:00:46.1370751+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-11-20T17:00:46.1370751+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-11-20T17:00:46.1420721+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-20T17:00:46.1420721+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-11-20T17:00:46.1420721+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-11-20T17:00:46.1420721+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-11-20T17:00:46.1430717+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-11-20T17:00:46.1440711+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-20T17:00:46.1470692+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-11-20T17:00:46.1490679+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-20T17:00:46.1490679+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-20T17:00:46.1510664+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-11-20T17:00:46.6987327+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-11-20T17:00:46.9645711+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-11-20T17:00:46.9805609+05:30:Thread#0:T:-> Using default config
+2019-11-20T17:00:47.0645091+05:30:Thread#0:B:Given user opens browser
+2019-11-20T17:00:58.4498160+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (11.3s)
+2019-11-20T17:00:58.4508143+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-11-20T17:01:03.2303890+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (4.8s)
+2019-11-20T17:01:03.2303890+05:30:Thread#0:B:And user is on home page
+2019-11-20T17:01:12.5596962+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (9.3s)
+2019-11-20T17:01:12.5596962+05:30:Thread#0:B:Then Check if call is associated with the user or not

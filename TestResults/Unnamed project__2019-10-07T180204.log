@@ -1,0 +1,41 @@
+﻿2019-10-07T18:02:04.2133791+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-10-07T18:02:04.2133791+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-10-07T18:02:04.2133791+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-10-07T18:02:04.2613504+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-07T18:02:04.2613504+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-10-07T18:02:04.2613504+05:30;VSTestExecutionThread;Info;Profile: 
+2019-10-07T18:02:04.2833373+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-07T180204.log
+2019-10-07T18:02:04.2963291+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-10-07T18:02:04.3033268+05:30;Thread#13;Info;Checking license
+2019-10-07T18:02:04.3153174+05:30;Thread#13;Info;Evaluation mode: test execution starts in 9 seconds... (this delay is removed in the registered version)
+2019-10-07T18:02:13.3164452+05:30;Thread#13;Info;Evaluation delay finished.
+2019-10-07T18:02:13.3214417+05:30;Thread#13;Info;License check completed
+2019-10-07T18:02:13.3224415+05:30;Thread#13;Info;starting test run
+2019-10-07T18:02:13.3304361+05:30;Thread#13;Info;Discovering target: Default
+2019-10-07T18:02:13.3314355+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-07T18:02:13.6902172+05:30:Appdomain Disposed
+2019-10-07T18:02:13.6902172+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-07T18:02:13.6912169+05:30:Test Suite Dump
+2019-10-07T18:02:13.6922164+05:30:#0: Unnamed project/ - 
+2019-10-07T18:02:13.6922164+05:30:#1: Default - 
+2019-10-07T18:02:13.6922164+05:30:#2: VeevaCRM - 
+2019-10-07T18:02:13.6922164+05:30:#3: Veeva CRM Account Page Feature - 
+2019-10-07T18:02:13.7291939+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-10-07T18:02:13.7291939+05:30:End: Test Suite Dump
+2019-10-07T18:02:13.7511802+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-07T18:02:13.7531792+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-10-07T18:02:13.7531792+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-10-07T18:02:13.7571767+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-07T18:02:13.7571767+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-10-07T18:02:13.7571767+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-10-07T18:02:13.7571767+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-10-07T18:02:13.7581764+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-10-07T18:02:13.7591752+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-10-07T18:02:13.7621734+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-10-07T18:02:13.7631729+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-07T18:02:13.7641726+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-07T18:02:13.7651719+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-10-07T18:02:13.8201394+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-10-07T18:02:13.9470615+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-10-07T18:02:13.9530578+05:30:Thread#0:T:-> Using default config
+2019-10-07T18:02:14.0140200+05:30:Thread#0:B:Given user opens browser

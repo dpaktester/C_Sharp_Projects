@@ -1,0 +1,127 @@
+﻿2019-11-04T15:59:18.8248436+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-04T15:59:18.8248436+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-04T15:59:18.8248436+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-04T15:59:18.8538248+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-04T15:59:18.8538248+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-04T15:59:18.8538248+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-04T15:59:18.8748129+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-04T155918.log
+2019-11-04T15:59:18.8878049+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-04T15:59:18.8938012+05:30;Thread#13;Info;Checking license
+2019-11-04T15:59:18.9056040+05:30;Thread#13;Info;Evaluation mode: test execution starts in 10 seconds... (this delay is removed in the registered version)
+2019-11-04T15:59:28.9065423+05:30;Thread#13;Info;Evaluation delay finished.
+2019-11-04T15:59:28.9115379+05:30;Thread#13;Info;License check completed
+2019-11-04T15:59:28.9115379+05:30;Thread#13;Info;starting test run
+2019-11-04T15:59:28.9195336+05:30;Thread#13;Info;Discovering target: Default
+2019-11-04T15:59:28.9195336+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-04T15:59:29.2993007+05:30:Appdomain Disposed
+2019-11-04T15:59:29.2993007+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-04T15:59:29.2993007+05:30:Test Suite Dump
+2019-11-04T15:59:29.3012994+05:30:#0: Unnamed project/ - 
+2019-11-04T15:59:29.3012994+05:30:#1: Default - 
+2019-11-04T15:59:29.3012994+05:30:#2: VeevaCRM - 
+2019-11-04T15:59:29.3012994+05:30:#20: Veeva CRM Home Page Feature - 
+2019-11-04T15:59:29.3332793+05:30:#21: Checking the three graphs in the home page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Home+Page+Feature/Scenario:Checking+the+three+graphs+in+the+home+page
+2019-11-04T15:59:29.3332793+05:30:#22: Checking the Refresh button - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Home+Page+Feature/Scenario:Checking+the+Refresh+button
+2019-11-04T15:59:29.3332793+05:30:#23: Check the calender event - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Home+Page+Feature/Scenario:Check+the+calender+event
+2019-11-04T15:59:29.3332793+05:30:End: Test Suite Dump
+2019-11-04T15:59:29.3542664+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-04T15:59:29.3562653+05:30:Thread#:Scheduler: testitem #21 from normal test queue 
+2019-11-04T15:59:29.3562653+05:30:Thread#0:Scheduler: considering testitem #21 for thread 0
+2019-11-04T15:59:29.3602634+05:30:Thread#0:TestItem#21:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-04T15:59:29.3602634+05:30:Thread#0:TestItem#21:runsOnOneOtherThreadSpecific:False
+2019-11-04T15:59:29.3602634+05:30:Thread#0:TestItem#21:runsOnOneOtherThreadUnspecific:False
+2019-11-04T15:59:29.3602634+05:30:Thread#0:Scheduler: using testitem #21 for thread 0
+2019-11-04T15:59:29.3622620+05:30:Thread#0:Scheduler: Test #21 is scheduled for thread
+2019-11-04T15:59:29.3632612+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-04T15:59:29.3652600+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-11-04T15:59:29.3672586+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-04T15:59:29.3672586+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-04T15:59:29.3692575+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-11-04T15:59:29.4202261+05:30:Thread#0: Test #21/0 is started on thread #0
+2019-11-04T15:59:29.5381538+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-11-04T15:59:29.5431507+05:30:Thread#0:T:-> Using default config
+2019-11-04T15:59:29.5921283+05:30:Thread#0:B:Given user opens browser
+2019-11-04T15:59:38.2883196+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (8.6s)
+2019-11-04T15:59:38.2893188+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-11-04T15:59:52.6330521+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (14.3s)
+2019-11-04T15:59:52.6330521+05:30:Thread#0:B:And user is on home page
+2019-11-04T15:59:53.0747803+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (0.4s)
+2019-11-04T15:59:53.0747803+05:30:Thread#0:B:When user hovers on graph One verify the message of graph one
+2019-11-04T15:59:54.3666832+05:30:Thread#0:T:done: HomePageStepDefination.WhenUserHoversOnGraphOneVerifyTheMessageOfGraphOne() (1.3s)
+2019-11-04T15:59:54.3666832+05:30:Thread#0:B:And user hovers on graph two verify message of graph two
+2019-11-04T15:59:55.4839039+05:30:Thread#0:T:done: HomePageStepDefination.WhenUserHoversOnGraphTwoVerifyMessageOfGraphTwo() (1.1s)
+2019-11-04T15:59:55.4888954+05:30:Thread#0:B:And user hovers on graph three verify message of graph three
+2019-11-04T15:59:55.6563207+05:30:Thread#0:T:done: HomePageStepDefination.WhenUserHoversOnGraphThreeVerifyMessageOfGraphThree() (0.2s)
+2019-11-04T15:59:55.6683160+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-04T15:59:55.6683160+05:30:Thread#:Scheduler: testitem #22 from normal test queue 
+2019-11-04T15:59:55.6683160+05:30:Thread#0:Scheduler: considering testitem #22 for thread 0
+2019-11-04T15:59:55.6683160+05:30:Thread#0:TestItem#22:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-04T15:59:55.6683160+05:30:Thread#0:TestItem#22:runsOnOneOtherThreadSpecific:False
+2019-11-04T15:59:55.6683160+05:30:Thread#0:TestItem#22:runsOnOneOtherThreadUnspecific:False
+2019-11-04T15:59:55.6683160+05:30:Thread#0:Scheduler: using testitem #22 for thread 0
+2019-11-04T15:59:55.6683160+05:30:Thread#0:Scheduler: Test #22 is scheduled for thread
+2019-11-04T15:59:55.6683160+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-04T15:59:55.6783099+05:30:Thread#0: Test #21/0 is finished on thread #0 as Succeeded within 26.2580838 seconds
+2019-11-04T15:59:55.6793100+05:30:Thread#0: Test #22/0 is started on thread #0
+2019-11-04T15:59:55.6803085+05:30:Thread#0:B:When user clicks on Refresh button
+2019-11-04T15:59:56.2464166+05:30:Thread#0:T:done: HomePageStepDefination.WhenUserClicksOnRefreshButton() (0.6s)
+2019-11-04T15:59:56.2464166+05:30:Thread#0:B:Then the three graphs refreshed
+2019-11-04T15:59:56.3413590+05:30:Thread#0:T:done: HomePageStepDefination.ThenTheThreeGraphsRefreshed() (0.1s)
+2019-11-04T15:59:56.3413590+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-04T15:59:56.3413590+05:30:Thread#:Scheduler: testitem #23 from normal test queue 
+2019-11-04T15:59:56.3413590+05:30:Thread#0:Scheduler: considering testitem #23 for thread 0
+2019-11-04T15:59:56.3413590+05:30:Thread#0:TestItem#23:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-04T15:59:56.3413590+05:30:Thread#0:TestItem#23:runsOnOneOtherThreadSpecific:False
+2019-11-04T15:59:56.3413590+05:30:Thread#0:TestItem#23:runsOnOneOtherThreadUnspecific:False
+2019-11-04T15:59:56.3413590+05:30:Thread#0:Scheduler: using testitem #23 for thread 0
+2019-11-04T15:59:56.3413590+05:30:Thread#0:Scheduler: Test #23 is scheduled for thread
+2019-11-04T15:59:56.3413590+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-04T15:59:56.3423572+05:30:Thread#0: Test #22/0 is finished on thread #0 as Succeeded within 0.6630472 seconds
+2019-11-04T15:59:56.3423572+05:30:Thread#0: Test #23/0 is started on thread #0
+2019-11-04T15:59:56.3423572+05:30:Thread#0:B:When user clicks on New Event button
+2019-11-04T15:59:58.7096596+05:30:Thread#0:T:done: HomePageStepDefination.WhenUserClicksOnNewEventButton() (2.4s)
+2019-11-04T15:59:58.7096596+05:30:Thread#0:B:Then Calendar opens
+2019-11-04T15:59:58.7466361+05:30:Thread#0:T:done: HomePageStepDefination.ThenCalendarOpens() (0.0s)
+2019-11-04T15:59:58.7466361+05:30:Thread#0:B:Then Enter the subject as Testing Calander Event
+2019-11-04T15:59:59.0584456+05:30:Thread#0:T:done: HomePageStepDefination.ThenEnterTheSubjectAsTestingCalanderEvent() (0.3s)
+2019-11-04T15:59:59.0584456+05:30:Thread#0:B:And Enter the location as Bangalore
+2019-11-04T15:59:59.1873655+05:30:Thread#0:T:done: HomePageStepDefination.ThenEnterTheLocationAsBangalore() (0.1s)
+2019-11-04T15:59:59.1873655+05:30:Thread#0:B:And Enter the Start Date
+2019-11-04T15:59:59.3832454+05:30:Thread#0:T:done: HomePageStepDefination.ThenEnterTheStartDate() (0.2s)
+2019-11-04T15:59:59.3832454+05:30:Thread#0:B:And Enter the Start Time
+2019-11-04T15:59:59.5221610+05:30:Thread#0:T:done: HomePageStepDefination.ThenEnterTheStartTime() (0.1s)
+2019-11-04T15:59:59.5221610+05:30:Thread#0:B:And Enter the End Date
+2019-11-04T15:59:59.6920562+05:30:Thread#0:T:done: HomePageStepDefination.ThenEnterTheEndDate() (0.2s)
+2019-11-04T15:59:59.6920562+05:30:Thread#0:B:And Enter the End Time
+2019-11-04T15:59:59.8349678+05:30:Thread#0:T:done: HomePageStepDefination.ThenEnterTheEndTime() (0.1s)
+2019-11-04T15:59:59.8349678+05:30:Thread#0:B:Then Click on Save button
+2019-11-04T16:00:03.1542491+05:30:Thread#0:T:done: HomePageStepDefination.ThenClickOnSaveButton() (3.3s)
+2019-11-04T16:00:03.1542491+05:30:Thread#0:B:Then close the home browser
+2019-11-04T16:00:05.4632204+05:30:Thread#0:T:done: HomePageStepDefination.ThenCloseTheHomeBrowser() (2.3s)
+2019-11-04T16:00:05.4632204+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-04T16:00:05.4632204+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-11-04T16:00:05.4632204+05:30:Thread#0:Scheduler: enumerator for thread is at end
+2019-11-04T16:00:05.4632204+05:30:Thread#0:Scheduler: No more tests for thread
+2019-11-04T16:00:05.4652195+05:30:Thread#0: Test #23/0 is finished on thread #0 as Succeeded within 9.1228623 seconds
+2019-11-04T16:00:05.4802102+05:30:Appdomain Disposed
+2019-11-04T16:00:05.4822089+05:30:Trying to cancel thread
+2019-11-04T16:00:05.4822089+05:30:Thread cancelled
+2019-11-04T16:00:05.4882056+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-04T16:00:05.4882056+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-11-04T16:00:05.4882056+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-11-04T16:00:05.4902044+05:30;Thread#13;Info;test run finished
+2019-11-04T16:00:05.4902044+05:30;Thread#13;Info;publishing test results
+2019-11-04T16:00:05.4972027+05:30;Thread#13;Info;test results published
+2019-11-04T16:00:05.4981989+05:30;Thread#13;Info;generating reports
+2019-11-04T16:00:05.6081317+05:30;Thread#13;Info;Starting external report generation process
+2019-11-04T16:00:07.4983422+05:30;Thread#13;Info;Successfully generated reports.
+2019-11-04T16:00:07.5003422+05:30;Thread#13;Info;Successfully generated reports
+2019-11-04T16:00:07.5073385+05:30:Total: 3
+2019-11-04T16:00:07.5093347+05:30:Succeeded: 3
+2019-11-04T16:00:07.5093347+05:30:Ignored: 0
+2019-11-04T16:00:07.5103355+05:30:Pending: 0
+2019-11-04T16:00:07.5103355+05:30:Skipped: 0
+2019-11-04T16:00:07.5103355+05:30:Failed: 0
+2019-11-04T16:00:07.5213288+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-11-04T16:00:07.5213288+05:30;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-04T155918.html'
+========== End of log file ==========

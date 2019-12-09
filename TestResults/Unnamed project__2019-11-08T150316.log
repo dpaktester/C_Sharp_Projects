@@ -1,0 +1,324 @@
+﻿2019-11-08T15:03:16.2384048+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-08T15:03:16.2384048+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-08T15:03:16.2384048+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-08T15:03:16.2753820+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-08T15:03:16.2753820+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-08T15:03:16.2753820+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-08T15:03:16.2993678+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-08T150316.log
+2019-11-08T15:03:16.3163563+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-08T15:03:16.3233539+05:30;Thread#13;Info;Checking license
+2019-11-08T15:03:16.3363465+05:30;Thread#13;Info;Evaluation mode: test execution starts in 5 seconds... (this delay is removed in the registered version)
+2019-11-08T15:03:21.3371007+05:30;Thread#13;Info;Evaluation delay finished.
+2019-11-08T15:03:21.3420969+05:30;Thread#13;Info;License check completed
+2019-11-08T15:03:21.3420969+05:30;Thread#13;Info;starting test run
+2019-11-08T15:03:21.3560893+05:30;Thread#13;Info;Discovering target: Default
+2019-11-08T15:03:21.3560893+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-08T15:03:21.7648409+05:30:Appdomain Disposed
+2019-11-08T15:03:21.7648409+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-08T15:03:21.7648409+05:30:Test Suite Dump
+2019-11-08T15:03:21.7668398+05:30:#0: Unnamed project/ - 
+2019-11-08T15:03:21.7668398+05:30:#1: Default - 
+2019-11-08T15:03:21.7668398+05:30:#2: VeevaCRM - 
+2019-11-08T15:03:21.7668398+05:30:#3: Veeva CRM Account Page Feature - 
+2019-11-08T15:03:21.7988200+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-11-08T15:03:21.7988200+05:30:#5: Checking the the veiw drop down in Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+veiw+drop+down+in+Accounts+page
+2019-11-08T15:03:21.7988200+05:30:#6: checking the data for commercial channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+commercial+channel
+2019-11-08T15:03:21.7988200+05:30:#7: Check the data for Account Detail for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Account+Detail+for+commercial+view
+2019-11-08T15:03:21.7988200+05:30:#8: Check weather the Account Details name is same as AccountName or not  for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+weather+the+Account+Details+name+is+same+as+AccountName+or+not++for+commercial+view
+2019-11-08T15:03:21.7988200+05:30:#9: Check Formulary for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+Formulary+for+commercial+view
+2019-11-08T15:03:21.7988200+05:30:#10: Check the Coverage Policy items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Coverage+Policy+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#11: Check the pharmacy Services items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+pharmacy+Services+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#12: Check the Plan Products items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Plan+Products+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#13: Check the Specialty Providers items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Specialty+Providers+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#14: Check the (Member Of) of items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+(Member+Of)+of+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#15: Check the Member items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Member+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#16: Check the Address items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Address+items+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#17: Check the Account Plan for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Account+Plan+for+Commercial+View
+2019-11-08T15:03:21.7988200+05:30:#18: Check the View Hierarchy button for All View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+View+Hierarchy+button+for+All+View
+2019-11-08T15:03:21.7988200+05:30:#19: checking the data for Employer channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Employer+channel
+2019-11-08T15:03:21.7988200+05:30:#20: checking the data for PBM channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+PBM+channel
+2019-11-08T15:03:21.7988200+05:30:#21: checking the data for Specialty Provider channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Specialty+Provider+channel
+2019-11-08T15:03:21.7988200+05:30:End: Test Suite Dump
+2019-11-08T15:03:21.8218060+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:03:21.8238046+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-11-08T15:03:21.8238046+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-11-08T15:03:21.8288017+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:03:21.8288017+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:03:21.8288017+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:03:21.8288017+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-11-08T15:03:21.8298013+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-11-08T15:03:21.8308005+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-08T15:03:21.8327995+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-11-08T15:03:21.8347980+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-08T15:03:21.8357978+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-08T15:03:21.8367969+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-11-08T15:03:21.8977596+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-11-08T15:03:22.0226839+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-11-08T15:03:22.0286808+05:30:Thread#0:T:-> Using default config
+2019-11-08T15:03:22.0796498+05:30:Thread#0:B:Given user opens browser
+2019-11-08T15:03:30.7921390+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (8.6s)
+2019-11-08T15:03:30.7931380+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-11-08T15:03:35.8274505+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (5.0s)
+2019-11-08T15:03:35.8284493+05:30:Thread#0:B:And user is on home page
+2019-11-08T15:03:44.5593820+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (8.7s)
+2019-11-08T15:03:44.5593820+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-11-08T15:03:53.6645742+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckIfCallIsAssociatedWithTheUserOrNot() (9.1s)
+2019-11-08T15:03:53.6645742+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-11-08T15:03:59.2097008+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenUserClicksOnMyAccounts() (5.5s)
+2019-11-08T15:03:59.2097008+05:30:Thread#0:B:And verifies the Title of the Page
+2019-11-08T15:03:59.2566727+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenVerifiesTheTitleOfThePage() (0.0s)
+2019-11-08T15:03:59.2656665+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:03:59.2656665+05:30:Thread#:Scheduler: testitem #5 from normal test queue 
+2019-11-08T15:03:59.2656665+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-11-08T15:03:59.2656665+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:03:59.2656665+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:03:59.2656665+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:03:59.2656665+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-11-08T15:03:59.2656665+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-11-08T15:03:59.2656665+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-08T15:03:59.2766598+05:30:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 37.3769017 seconds
+2019-11-08T15:03:59.2776607+05:30:Thread#0: Test #5/0 is started on thread #0
+2019-11-08T15:03:59.2786589+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:03:59.2786589+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:03:59.2786589+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-11-08T15:03:59.6914082+05:30:Thread#0:T:error: Assert.AreEqual failed. Expected:<0>. Actual:<3>. 
+2019-11-08T15:03:59.7203912+05:30:Thread#0:TestItem#5:Scheduler: reschedule tests for testitem #5
+2019-11-08T15:03:59.7213905+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:03:59.7213905+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2019-11-08T15:03:59.7213905+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-11-08T15:03:59.7213905+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:03:59.7213905+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:03:59.7213905+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:03:59.7213905+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-11-08T15:03:59.7213905+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-11-08T15:03:59.7213905+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-11-08T15:03:59.7213905+05:30:Thread#0: Test #5/0 is finished on thread #0 as Failed within 0.4437298 seconds
+2019-11-08T15:03:59.7213905+05:30:Thread#0: Test #5/1 is started on thread #0
+2019-11-08T15:03:59.7213905+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:03:59.7223896+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:03:59.7223896+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-11-08T15:03:59.9292641+05:30:Thread#0:T:error: Assert.AreEqual failed. Expected:<0>. Actual:<3>. 
+2019-11-08T15:03:59.9302635+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:03:59.9302635+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2019-11-08T15:03:59.9302635+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-11-08T15:03:59.9302635+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:03:59.9302635+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:03:59.9302635+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:03:59.9302635+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-11-08T15:03:59.9302635+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-11-08T15:03:59.9302635+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-11-08T15:03:59.9302635+05:30:Thread#0: Test #5/1 is finished on thread #0 as Failed within 0.208873 seconds
+2019-11-08T15:03:59.9302635+05:30:Thread#0: Test #5/2 is started on thread #0
+2019-11-08T15:03:59.9302635+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:03:59.9312631+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:03:59.9312631+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-11-08T15:04:00.1331402+05:30:Thread#0:T:error: Assert.AreEqual failed. Expected:<0>. Actual:<3>. 
+2019-11-08T15:04:00.1331402+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:04:00.1331402+05:30:Thread#:Scheduler: testitem #6 from normal test queue 
+2019-11-08T15:04:00.1331402+05:30:Thread#0:Scheduler: considering testitem #6 for thread 0
+2019-11-08T15:04:00.1331402+05:30:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:04:00.1331402+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:04:00.1331402+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:04:00.1331402+05:30:Thread#0:Scheduler: using testitem #6 for thread 0
+2019-11-08T15:04:00.1331402+05:30:Thread#0:Scheduler: Test #6 is scheduled for thread
+2019-11-08T15:04:00.1331402+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-08T15:04:00.1341396+05:30:Thread#0: Test #5/2 is finished on thread #0 as Failed within 0.2038761 seconds
+2019-11-08T15:04:00.1341396+05:30:Thread#0: Test #6/0 is started on thread #0
+2019-11-08T15:04:00.1341396+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:04:00.1341396+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:04:00.1351400+05:30:Thread#0:B:When view selected is commercial
+2019-11-08T15:04:00.1771142+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsCommercial() (0.0s)
+2019-11-08T15:04:00.1771142+05:30:Thread#0:B:And click on one commercial plan
+2019-11-08T15:04:05.1967417+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(text(),'Aetna Health Inc - Alabama')]"}
+2019-11-08T15:04:05.1977386+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-08T15:04:05.1977386+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-08T15:04:05.1977386+05:30:Thread#0:B:Then Check the Header
+2019-11-08T15:04:05.1977386+05:30:Thread#0:T:skipped because of previous errors
+2019-11-08T15:04:05.1977386+05:30:Thread#0:B:And check the selected items in the particular Account
+2019-11-08T15:04:05.1977386+05:30:Thread#0:T:skipped because of previous errors
+2019-11-08T15:04:05.1987393+05:30:Thread#0:TestItem#6:Scheduler: reschedule tests for testitem #6
+2019-11-08T15:04:05.1987393+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:04:05.1987393+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #6
+2019-11-08T15:04:05.1987393+05:30:Thread#0:Scheduler: considering testitem #6 for thread 0
+2019-11-08T15:04:05.1987393+05:30:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:04:05.1987393+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:04:05.1987393+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:04:05.1987393+05:30:Thread#0:Scheduler: using testitem #6 for thread 0
+2019-11-08T15:04:05.1987393+05:30:Thread#0:Scheduler: Test #6 is scheduled for thread
+2019-11-08T15:04:05.1987393+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-11-08T15:04:05.1997388+05:30:Thread#0: Test #6/0 is finished on thread #0 as Failed within 5.0655992 seconds
+2019-11-08T15:04:05.1997388+05:30:Thread#0: Test #6/1 is started on thread #0
+2019-11-08T15:04:05.1997388+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:04:05.1997388+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:04:05.2007373+05:30:Thread#0:B:When view selected is commercial
+2019-11-08T15:04:05.2457103+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsCommercial() (0.0s)
+2019-11-08T15:04:05.2457103+05:30:Thread#0:B:And click on one commercial plan
+2019-11-08T15:04:10.2576097+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(text(),'Aetna Health Inc - Alabama')]"}
+2019-11-08T15:04:10.2576097+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-08T15:04:10.2576097+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-08T15:04:10.2576097+05:30:Thread#0:B:Then Check the Header
+2019-11-08T15:04:10.2586077+05:30:Thread#0:T:skipped because of previous errors
+2019-11-08T15:04:10.2586077+05:30:Thread#0:B:And check the selected items in the particular Account
+2019-11-08T15:04:10.2586077+05:30:Thread#0:T:skipped because of previous errors
+2019-11-08T15:04:10.2596072+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:04:10.2596072+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #6
+2019-11-08T15:04:10.2596072+05:30:Thread#0:Scheduler: considering testitem #6 for thread 0
+2019-11-08T15:04:10.2596072+05:30:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:04:10.2596072+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:04:10.2596072+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:04:10.2596072+05:30:Thread#0:Scheduler: using testitem #6 for thread 0
+2019-11-08T15:04:10.2596072+05:30:Thread#0:Scheduler: Test #6 is scheduled for thread
+2019-11-08T15:04:10.2596072+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-11-08T15:04:10.2596072+05:30:Thread#0: Test #6/1 is finished on thread #0 as Failed within 5.0598684 seconds
+2019-11-08T15:04:10.2596072+05:30:Thread#0: Test #6/2 is started on thread #0
+2019-11-08T15:04:10.2606072+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:04:10.2606072+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:04:10.2606072+05:30:Thread#0:B:When view selected is commercial
+2019-11-08T15:04:10.3015814+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsCommercial() (0.0s)
+2019-11-08T15:04:10.3015814+05:30:Thread#0:B:And click on one commercial plan
+2019-11-08T15:04:15.3135645+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(text(),'Aetna Health Inc - Alabama')]"}
+2019-11-08T15:04:15.3135645+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-08T15:04:15.3135645+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-08T15:04:15.3135645+05:30:Thread#0:B:Then Check the Header
+2019-11-08T15:04:15.3135645+05:30:Thread#0:T:skipped because of previous errors
+2019-11-08T15:04:15.3145637+05:30:Thread#0:B:And check the selected items in the particular Account
+2019-11-08T15:04:15.3145637+05:30:Thread#0:T:skipped because of previous errors
+2019-11-08T15:04:15.3145637+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-08T15:04:15.3145637+05:30:Thread#:Scheduler: testitem #7 from normal test queue 
+2019-11-08T15:04:15.3145637+05:30:Thread#0:Scheduler: considering testitem #7 for thread 0
+2019-11-08T15:04:15.3145637+05:30:Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-08T15:04:15.3145637+05:30:Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+2019-11-08T15:04:15.3145637+05:30:Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+2019-11-08T15:04:15.3145637+05:30:Thread#0:Scheduler: using testitem #7 for thread 0
+2019-11-08T15:04:15.3145637+05:30:Thread#0:Scheduler: Test #7 is scheduled for thread
+2019-11-08T15:04:15.3145637+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-08T15:04:15.3155630+05:30:Thread#0: Test #6/2 is finished on thread #0 as Failed within 5.0559558 seconds
+2019-11-08T15:04:15.3155630+05:30:Thread#0: Test #7/0 is started on thread #0
+2019-11-08T15:04:15.3155630+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-08T15:04:15.3155630+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-08T15:04:15.3195607+05:30:Thread#0:B:Then check the items in Account Detail
+2019-11-08T15:04:15.3375508+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class = 'detailList']/tbody/tr[1]/td[1][contains(text(),'Name')]"}
+2019-11-08T15:04:15.3385491+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-08T15:04:15.3385491+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-08T15:04:15.3385491+05:30:Cancelling because configured number of failures reached
+2019-11-08T15:04:15.3395496+05:30:Thread#0: Test #7/0 is finished on thread #0 as Failed within 0.0239866 seconds
+2019-11-08T15:04:15.3625343+05:30:Appdomain Disposed
+2019-11-08T15:04:15.3635342+05:30:Trying to cancel thread
+2019-11-08T15:04:15.3635342+05:30:Thread cancelled
+2019-11-08T15:04:15.3695301+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3695301+05:30:Thread#:Scheduler: testitem #8 from normal test queue 
+2019-11-08T15:04:15.3695301+05:30:Thread#-1:Scheduler: considering testitem #8 for thread -1
+2019-11-08T15:04:15.3695301+05:30:Thread#-1:Scheduler: using testitem #8 for thread -1
+2019-11-08T15:04:15.3695301+05:30:Thread#-1:Scheduler: Test #8 is scheduled for thread
+2019-11-08T15:04:15.3695301+05:30:Thread#-1: Test #8/0 is started on thread #-1
+2019-11-08T15:04:15.3695301+05:30:Thread#-1: Test #8/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #9 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #9 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #9 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #9 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #9/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #9/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #10 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #10 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #10 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #10 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #10/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #10/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #11 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #11 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #11 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #11 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #11/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #11/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #12 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #12 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #12 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #12 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #12/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #12/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #13 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #13 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #13 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #13 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #13/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #13/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #14 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #14 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #14 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #14 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #14/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #14/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #15 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #15 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #15 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #15 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #15/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #15/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #16 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #16 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #16 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #16 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #16/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #16/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #17 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #17 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #17 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #17 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #17/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #17/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #18 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #18 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #18 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #18 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #18/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #18/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #19 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #19 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #19 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #19 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #19/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #19/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #20 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #20 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #20 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #20 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #20/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #20/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: testitem #21 from normal test queue 
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: considering testitem #21 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: using testitem #21 for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: Test #21 is scheduled for thread
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #21/0 is started on thread #-1
+2019-11-08T15:04:15.3705295+05:30:Thread#-1: Test #21/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-08T15:04:15.3705295+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-11-08T15:04:15.3705295+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-11-08T15:04:15.3755266+05:30;Thread#13;Info;test run finished
+2019-11-08T15:04:15.3765264+05:30;Thread#13;Info;publishing test results
+2019-11-08T15:04:15.3815233+05:30;Thread#13;Info;test results published
+2019-11-08T15:04:15.3815233+05:30;Thread#13;Info;generating reports
+2019-11-08T15:04:15.4934562+05:30;Thread#13;Info;Starting external report generation process
+2019-11-08T15:04:17.0641758+05:30;Thread#13;Info;Successfully generated reports.
+2019-11-08T15:04:17.0771684+05:30;Thread#13;Info;Successfully generated reports
+2019-11-08T15:04:17.0841636+05:30:Total: 18 (test executions: 22)
+2019-11-08T15:04:17.0861627+05:30:Succeeded: 1
+2019-11-08T15:04:17.0861627+05:30:Ignored: 0
+2019-11-08T15:04:17.0871618+05:30:Pending: 0
+2019-11-08T15:04:17.0871618+05:30:Skipped: 14
+2019-11-08T15:04:17.0871618+05:30:Failed: 3
+2019-11-08T15:04:17.0961563+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-11-08T15:04:17.0961563+05:30;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-08T150316.html'
+========== End of log file ==========

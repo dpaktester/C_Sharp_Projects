@@ -1,0 +1,4516 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Unnamed project Test Execution Report</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript">
+            /**
+            * jQuery.fn.sortElements
+            * --------------
+            * #author James Padolsey (http://james.padolsey.com)
+            * #version 0.11
+            * #updated 18-MAR-2010
+            * #url https://raw.github.com/jamespadolsey/jQuery-Plugins/master/sortElements/jquery.sortElements.js
+            * --------------
+            * #param Function comparator:
+            *   Exactly the same behaviour as [1,2,3].sort(comparator)
+            *   
+            * #param Function getSortable
+            *   A function that should return the element that is
+            *   to be sorted. The comparator will run on the
+            *   current collection, but you may want the actual
+            *   resulting sort to occur on a parent or another
+            *   associated element.
+            *   
+            *   E.g. $('td').sortElements(comparator, function(){
+            *      return this.parentNode; 
+            *   })
+            *   
+            *   The <td>'s parent (<tr>) will be sorted instead
+            *   of the <td> itself.
+            */
+            jQuery.fn.sortElements = (function () {
+
+                var sort = [].sort;
+
+                return function (comparator, getSortable) {
+
+                    getSortable = getSortable || function () { return this; };
+
+                    var placements = this.map(function () {
+
+                        var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+
+                        // Since the element itself will change position, we have
+                        // to have some way of storing it's original position in
+                        // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+
+                        return function () {
+
+                            if (parentNode === this) {
+                                throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
+                            }
+
+                            // Insert before flag:
+                            parentNode.insertBefore(this, nextSibling);
+                            // Remove flag:
+                            parentNode.removeChild(nextSibling);
+
+                        };
+
+                    });
+
+                    return sort.call(this, comparator).each(function (i) {
+                        placements[i].call(getSortable.call(this));
+                    });
+
+                };
+
+            })();
+        </script>
+        <script type="text/javascript">
+            jQuery.fn.setBarSizes = (function () {
+                return function (metricName, maxBarSize, min) {
+                    var max = Math.max.apply(Math, $.makeArray($(this).map(function () { return Number($(this).attr('data-sr-' + metricName)); })));
+                    var scale = 1.0;
+                    while (max > 0.0 && max <= 10.0) {
+                        scale = scale * 10.0;
+                        max = max * 10.0;
+                    }
+                    max = (Math.ceil(max / 2) * 2) / scale;
+
+                    this.each(function () {
+                        var barAnchor = $(this).find('a');
+                        var actual = $(this).attr('data-sr-' + metricName);
+                        var newHeight = Math.max(Math.round(maxBarSize * (actual - min) / (max - min)), 2);
+                        barAnchor.css({ height: newHeight });
+                    });
+
+                    var unit = "";
+                    if (metricName.substr(metricName.length - 4, 4) === "time")
+                        unit = "s";
+
+                    $('#testview .scale-min-label').each(function () {
+                        $(this).text(min.toString() + unit);
+                    });
+                    $('#testview .scale-max-label').each(function () {
+                        $(this).text(max.toString() + unit);
+                    });
+                    var mid = max / 2;
+                    $('#testview .scale-mid-label').each(function () {
+                        $(this).text(mid.toString() + unit);
+                    });
+                };
+            })();
+
+            function getComparer(metricName, isDesc) {
+                return function (a, b) {
+                    var aNumber = Number($(a).attr('data-sr-' + metricName));
+                    var bNumber = Number($(b).attr('data-sr-' + metricName));
+                    var result = aNumber > bNumber ? 1 : (aNumber < bNumber ? -1 : 0);
+                    if (isDesc)
+                        result = -1 * result;
+
+                    if (result == 0 && metricName != "order")
+                        result = getComparer("order", false)(a, b);
+
+                    return result;
+                };
+            }
+
+            var currentSort = "";
+            function doSort(allowToggleDesc) {
+                var newSort = $("input[name='barSortOrder']:checked").val();
+                if (allowToggleDesc && currentSort == newSort) {
+                    $('#barSortDesc').click();
+                    doSort(false);
+                    return;
+                }
+                currentSort = newSort;
+                $('#testview td.testview-item').sortElements(getComparer(newSort, $('#barSortDesc').is(':checked')));
+            }
+
+
+            function doSetHeights(allowSort) {
+                var selectedMetric = $("input[name='barHeight']:checked").val();
+                $('#testview td.testview-item').setBarSizes(selectedMetric, 60, 0.0);
+
+                if (allowSort && currentSort != selectedMetric) {
+                    var $radios = $("input[name='barSortOrder']");
+                    $radios.filter('[value=' + selectedMetric + ']').attr('checked', true);
+                    $("#barSortDesc").attr("checked", [true]);
+                    doSort(false);
+                }
+            }
+
+            $(document).ready(function () {
+                $("input[name='barSortOrder']").click(function () { doSort(true); return true; });
+                $("input[name='barSortDesc']").change(function () { doSort(false); });
+                $("input[name='barHeight']").change(function () { doSetHeights(true); });
+
+                doSort(false);
+                doSetHeights(false);
+
+                $("div.scrollable").css({ 'overflow': 'auto' });
+            });
+        </script>
+
+        <style type="text/css">
+            body 
+            {
+                color: #000000;
+                font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+                line-height: 130%;
+            }
+            h1 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 170%;
+                font-weight: bold;
+            }            
+            h2 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 130%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            h3 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 120%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            a.bar
+            {
+                text-decoration: none;
+                display: block;
+                line-height: 1px;
+            }
+            .description
+            {
+                font-style: italic;
+            }
+            .log 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                display: block;
+                margin: 0px;
+            }
+            .errorMessage 
+            {
+                width: 600px;
+                color: Red;
+                font-weight: bold;
+            }
+            .stackTrace 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                font-style: italic;
+                color: Red;
+                display: block;
+            }
+            table.testEvents
+            {
+                border: solid 1px #e8eef4;
+                border-collapse: collapse;
+            }
+            table.testEvents td
+            {
+                vertical-align: top;
+                padding: 5px;
+                border: solid 1px #e8eef4;
+            }
+            table.testEvents th
+            {
+                padding: 6px 5px;
+                text-align: left;
+                background-color: #e8eef4;
+                border: solid 1px #e8eef4;                
+            }
+            .comment
+            {
+                font-style: italic;
+                font-size: smaller;
+            }
+            .startupBar
+            {
+                background-color: #EEEEEE;
+                cursor: default;
+            }
+            
+            .colorSucceeded
+            {
+                background-color: #90ED7B;
+            }
+            .colorIgnored
+            {
+                background-color: #FFFF85;
+            }
+            .colorPending
+            {
+                background-color: #D47BED;
+            }
+            .colorNothingToRun
+            {
+                background-color: #CCCCFF;
+            }
+            .colorSkipped
+            {
+                background-color: #CCCCFF;
+            }
+            .colorInconclusive
+            {
+                background-color: #7BEDED;
+            }
+            .colorCleanupFailed
+            {
+                background-color: #FFCCCC;
+            }
+            .colorRandomlyFailed
+            {
+                background-color: #EDB07B;
+            }
+            .colorFailed
+            {
+                background-color: #ED5F5F;
+            }
+            .colorInitializationFailed
+            {
+                background-color: #FF0000;
+            }
+            .colorFrameworkError
+            {
+                background-color: #FF0000;
+            }
+            ul.subNodeLinks
+            {
+                padding-left: 20px;
+                margin: 0px;
+            }
+            ul.subNodeLinks li
+            {
+                list-style: none;
+            }
+            
+            /* views general */
+            div.scrollable
+            {
+                /*overflow: auto; - thsi has to be set from js, because of an IE9 bug */
+            }
+            div.viewbox
+            {
+                position: relative;
+                border: 3px solid #e8eef4;
+            }
+            div.viewbox table
+            {
+                border: 0px;
+            }
+                        
+            /* testview */
+            #testview
+            {
+                padding-top: 23px;
+            }
+            
+            table.testview-items td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 1px;
+            }
+            td.right-padding, td.left-padding
+            {
+                width: 25px;
+                min-width: 25px;
+            }
+            table.testview-items a.bar
+            {
+                width: 5px;
+            }
+            table.testview-items tr.testview-items-row
+            {
+                height: 60px;
+            }
+            
+            /* scale */
+            table.vertical-scale 
+            {
+                position: absolute;
+                top: 23px;
+                left: 0px;
+                width: 100%;
+                z-index: -100;
+            }
+            table.vertical-scale td, tr.horizontal-scale td
+            {
+                font-size: 60%;
+                line-height: normal;
+            }
+            table.vertical-scale tr.scale-max, table.vertical-scale tr.scale-mid 
+            {
+                height: 30px;
+            }
+            tr.horizontal-scale, table.vertical-scale tr.scale-min 
+            {
+                height: 12px;
+            }
+            
+            td.scale-max-label, td.scale-mid-label, td.scale-min-label
+            {
+                border-top: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: top;
+            }
+            td.scale-10-label
+            {
+                border-left: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: bottom;
+                padding-left: 1px;
+            }
+            tr.scale-mid td, tr.scale-min td, tr.scale-max td
+            {
+                border-top: solid 1px #E6E6E6;
+            }
+           
+            
+            /* bar-control */
+            #bar-control
+            {
+                font-size: 60%;
+                line-height: normal;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+            #bar-control label
+            {
+                font-weight: bold;
+                vertical-align: middle;
+            }
+            #bar-control .option
+            {
+                vertical-align: middle;
+                text-transform: lowercase;
+            }
+            #bar-control input[type="checkbox"]
+            {
+                padding: 0 2px 0 3px;
+            }
+            #bar-control input
+            {
+                vertical-align: top;
+                height: 12px;
+                margin: 0px;
+                padding: 0px;
+            }
+            #bar-control div
+            {
+                float: right;
+                margin: 3px 5px 3px 5px;
+            }
+
+            /* timeline view */
+            #timelineview
+            {
+                padding-top: 5px;
+            }
+            table.timelineview a
+            {
+                height: 20px;
+            }
+            table.timelineview td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 0px;
+                border: 0px;
+            }
+            tr.thread-items-row
+            {
+                height: 25px;
+            }
+            tr.thread-items-row td
+            {
+                vertical-align: bottom;
+            }
+            td.thread-label
+            {
+                padding: 0px 6px 0px 6px;
+                text-align: right;
+                line-height: 18px;
+                vertical-align: bottom;
+            }
+            th.thread-label
+            {
+                padding: 3px 6px 0px 6px;
+                line-height: 18px;
+                text-align: left;
+                vertical-align: bottom;
+            }
+        </style>
+	</head>
+	<body>
+        <h1>Unnamed project Test Execution Report</h1>
+        
+    <ul>
+        <li>Project: Unnamed project</li>
+        <li>Configuration: </li>
+        <li>Test Assemblies: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll</li>
+        <li>Start Time: 11/13/2019 2:42:40 PM</li>
+        <li>Duration: 00:12:33.0898300</li>
+        <li>Test Threads: 1</li>
+    </ul>
+
+
+        <h2>Result: 3 failed</h2>
+        <table class="testEvents">
+                <tr>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+                <td>
+            88%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 127px;" 
+           title="23 succeeded" 
+                   ></a>
+    </td>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 16px;" 
+           title="3 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 55px;" 
+           title="10 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>36 (test executions: 40)</td>
+    <td>23</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>10</td>
+
+        </table>
+        
+        <h2>Test Timeline Summary</h2>
+
+        <div id="timelineview" class="viewbox">
+            <div class="scrollable">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th class="thread-label" colspan="2">thread</th>
+                    </tr>
+                        <tr class="thread-items-row">
+                            <td class="thread-label" title="Machine: BOTL060">#0</td>
+                            <td colspan="5">
+                                <table class="timelineview" cellpadding="0" cellspacing="0">
+                                    <tr>
+
+                                            <td>
+        <a
+            class="bar startupBar" 
+            style="width: 3px;" 
+                title="test thread startup" 
+        >&nbsp;</a>
+    </td>
+
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 10px;" 
+                title="Checking the the Accounts page (in Veeva CRM Account Page Feature)" 
+                href="#t1636226766.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Checking the the veiw drop down in Accounts page (in Veeva CRM Account Page Feature)" 
+                href="#t-1718344263.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="checking the data for commercial channel (in Veeva CRM Account Page Feature)" 
+                href="#t732085210.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the data for Account Detail for commercial view (in Veeva CRM Account Page Feature)" 
+                href="#t-1497435207.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check weather the Account Details name is same as AccountName or not  for commercial view (in Veeva CRM Account Page Feature)" 
+                href="#t1973863736.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check Formulary for commercial view (in Veeva CRM Account Page Feature)" 
+                href="#t-958418092.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the Coverage Policy items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t1949007184.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the pharmacy Services items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t461483067.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the Plan Products items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t-851845655.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the Specialty Providers items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t-1512217964.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the (Member Of) of items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t-1441543915.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the Member items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t-2129556614.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the Address items for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t-261051208.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="Check the Account Plan for Commercial View (in Veeva CRM Account Page Feature)" 
+                href="#t1085924150.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 159px;" 
+                title="Check the View Hierarchy button for All View (in Veeva CRM Account Page Feature)" 
+                href="#t819305325.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="checking the data for Employer channel (in Veeva CRM Account Page Feature)" 
+                href="#t-1548893161.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="checking the data for PBM channel (in Veeva CRM Account Page Feature)" 
+                href="#t1372670687.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="checking the data for Specialty Provider channel (in Veeva CRM Account Page Feature)" 
+                href="#t-1497550129.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="checking the data for State Medicaid channel (in Veeva CRM Account Page Feature)" 
+                href="#t625409885.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="checking the data for Tricare channel (in Veeva CRM Account Page Feature)" 
+                href="#t-1831658652.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="checking the data for VA channel (in Veeva CRM Account Page Feature)" 
+                href="#t1337129431.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="checking the data for Medicare channel (in Veeva CRM Account Page Feature)" 
+                href="#t401730194.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="checking the data for My Accounts (in Veeva CRM Account Page Feature)" 
+                href="#t-2115479545.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="checking the data for Parent Accounts (in Veeva CRM Account Page Feature)" 
+                href="#t620084565.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="checking the data for Parent Accounts (in Veeva CRM Account Page Feature) retry #1" 
+                href="#t620084565.1"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="checking the data for Parent Accounts (in Veeva CRM Account Page Feature) retry #2" 
+                href="#t620084565.2"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="Check the data for Employer view in all the items (in Veeva CRM Account Page Feature)" 
+                href="#t831105624.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="Check the data for Employer view in all the items (in Veeva CRM Account Page Feature) retry #1" 
+                href="#t831105624.1"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="Check the data for Employer view in all the items (in Veeva CRM Account Page Feature) retry #2" 
+                href="#t831105624.2"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorFailed" 
+            style="width: 3px;" 
+                title="Check the data for Medicare view in all the items (in Veeva CRM Account Page Feature)" 
+                href="#t881128189.0"
+        >&nbsp;</a>
+    </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="horizontal-scale">
+                        <td>&nbsp;</td>
+                            <td class="scale-10-label" style="width: 70px;min-width: 70px;">0s</td>
+                            <td class="scale-10-label" style="width: 70px;min-width: 70px;">188s</td>
+                            <td class="scale-10-label" style="width: 70px;min-width: 70px;">376s</td>
+                            <td class="scale-10-label" style="width: 70px;min-width: 70px;">564s</td>
+                        <td class="scale-10-label">752s</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        
+    <h2>Test Result View</h2>
+    <div id="testview" class="viewbox">
+        <div id="bar-control">
+            <div id="bar-control-sort">
+                <label>sort by:</label>
+                <span class="option"><input type="radio" name="barSortOrder" value="exectime" />Time</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="acttime" />Act Time</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="order" />Execution</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="rescode" checked="checked" />Result</span>
+                <span class="option"><input type="checkbox" name="barSortDesc" id="barSortDesc" checked="checked" />desc</span>
+            </div>
+            <div id="bar-control-heights">
+                <label>heights:</label>
+                <span class="option"><input type="radio" checked="checked" name="barHeight" value="exectime" />Time</span>
+                <span class="option"><input type="radio" name="barHeight" value="acttime" />Act Time</span>
+            </div>
+        </div>
+        <table class="vertical-scale" cellpadding="0" cellspacing="0">
+            <tr class="scale-max">
+                <td class="left-padding scale-max-label">&nbsp;</td>
+                <td colspan="40">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+            <tr class="scale-mid">
+                <td class="left-padding scale-mid-label">&nbsp;</td>
+                <td colspan="40">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+            <tr class="scale-min">
+                <td class="left-padding scale-min-label">&nbsp;</td>
+                <td colspan="40">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+        </table>
+        <div class="scrollable">
+            <table class="testview-items" cellpadding="0" cellspacing="0">
+                <tr class="testview-items-row">
+                    <td class="left-padding">&nbsp;</td>
+    <td class="testview-item" 
+        data-sr-exectime="40.1972557" data-sr-rescode="110" data-sr-order="0" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 4px;"
+            title="Checking the the Accounts page (in Veeva CRM Account Page Feature)"
+            href="#t1636226766.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3158074" data-sr-rescode="110" data-sr-order="1" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Checking the the veiw drop down in Accounts page (in Veeva CRM Account Page Feature)"
+            href="#t-1718344263.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="20.43636" data-sr-rescode="110" data-sr-order="2" data-sr-acttime="20.036">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for commercial channel (in Veeva CRM Account Page Feature)"
+            href="#t732085210.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.1489085" data-sr-rescode="110" data-sr-order="3" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the data for Account Detail for commercial view (in Veeva CRM Account Page Feature)"
+            href="#t-1497435207.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.0419742" data-sr-rescode="110" data-sr-order="4" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check weather the Account Details name is same as AccountName or not  for commercial view (in Veeva CRM Account Page Feature)"
+            href="#t1973863736.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.06596" data-sr-rescode="110" data-sr-order="5" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check Formulary for commercial view (in Veeva CRM Account Page Feature)"
+            href="#t-958418092.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.1708953" data-sr-rescode="110" data-sr-order="6" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the Coverage Policy items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t1949007184.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.376769" data-sr-rescode="110" data-sr-order="7" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the pharmacy Services items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t461483067.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.150908" data-sr-rescode="110" data-sr-order="8" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the Plan Products items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t-851845655.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.0749536" data-sr-rescode="110" data-sr-order="9" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the Specialty Providers items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t-1512217964.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.050969" data-sr-rescode="110" data-sr-order="10" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the (Member Of) of items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t-1441543915.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.115929" data-sr-rescode="110" data-sr-order="11" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the Member items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t-2129556614.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.1738938" data-sr-rescode="110" data-sr-order="12" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the Address items for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t-261051208.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.1868852" data-sr-rescode="110" data-sr-order="13" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="Check the Account Plan for Commercial View (in Veeva CRM Account Page Feature)"
+            href="#t1085924150.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="546.7502515" data-sr-rescode="110" data-sr-order="14" data-sr-acttime="0.0">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 60px;"
+            title="Check the View Hierarchy button for All View (in Veeva CRM Account Page Feature)"
+            href="#t819305325.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="12.2743201" data-sr-rescode="110" data-sr-order="15" data-sr-acttime="9">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for Employer channel (in Veeva CRM Account Page Feature)"
+            href="#t-1548893161.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="17.9254905" data-sr-rescode="110" data-sr-order="16" data-sr-acttime="11.081">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for PBM channel (in Veeva CRM Account Page Feature)"
+            href="#t1372670687.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="18.9425891" data-sr-rescode="110" data-sr-order="17" data-sr-acttime="17.922">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for Specialty Provider channel (in Veeva CRM Account Page Feature)"
+            href="#t-1497550129.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="13.208906" data-sr-rescode="110" data-sr-order="18" data-sr-acttime="10.056">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for State Medicaid channel (in Veeva CRM Account Page Feature)"
+            href="#t625409885.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="13.052844" data-sr-rescode="110" data-sr-order="19" data-sr-acttime="12.667">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for Tricare channel (in Veeva CRM Account Page Feature)"
+            href="#t-1831658652.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="12.8970688" data-sr-rescode="110" data-sr-order="20" data-sr-acttime="9.958">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for VA channel (in Veeva CRM Account Page Feature)"
+            href="#t1337129431.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="13.4426922" data-sr-rescode="110" data-sr-order="21" data-sr-acttime="10.038">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for Medicare channel (in Veeva CRM Account Page Feature)"
+            href="#t401730194.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="13.3047442" data-sr-rescode="110" data-sr-order="22" data-sr-acttime="12.886">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 2px;"
+            title="checking the data for My Accounts (in Veeva CRM Account Page Feature)"
+            href="#t-2115479545.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="30" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for Parent Accounts view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t1773080313.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="31" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for My Accounts view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t-1128637749.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="32" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for PBM view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t-182788434.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="33" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for Specialty view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t-1787623259.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="34" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for State Medicaid view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t-810295040.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="35" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for Tricare view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t1249400405.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="36" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the data for VA view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t-304787726.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="37" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the buttons in My Accounts screen (in Veeva CRM Account Page Feature)"
+            href="#t396121038.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="38" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the Hover of elements in My Accounts Page (in Veeva CRM Account Page Feature)"
+            href="#t-880052470.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0" data-sr-rescode="420" data-sr-order="39" data-sr-acttime="0.0">
+        <a
+            class="bar colorSkipped" 
+            style="height: 2px;"
+            title="Check the Account Plan of elements in My Accounts Page (in Veeva CRM Account Page Feature)"
+            href="#t768029806.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="6.0527912" data-sr-rescode="540" data-sr-order="23" data-sr-acttime="6.012">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="checking the data for Parent Accounts (in Veeva CRM Account Page Feature)"
+            href="#t620084565.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.0659607" data-sr-rescode="540" data-sr-order="24" data-sr-acttime="0.063">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="checking the data for Parent Accounts (in Veeva CRM Account Page Feature) retry #1"
+            href="#t620084565.1">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.0139906" data-sr-rescode="540" data-sr-order="25" data-sr-acttime="0.011">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="checking the data for Parent Accounts (in Veeva CRM Account Page Feature) retry #2"
+            href="#t620084565.2">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="7.0144377" data-sr-rescode="540" data-sr-order="26" data-sr-acttime="0.0">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="Check the data for Employer view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t831105624.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="8.0293215" data-sr-rescode="540" data-sr-order="27" data-sr-acttime="0.0">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="Check the data for Employer view in all the items (in Veeva CRM Account Page Feature) retry #1"
+            href="#t831105624.1">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="7.0133193" data-sr-rescode="540" data-sr-order="28" data-sr-acttime="0.0">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="Check the data for Employer view in all the items (in Veeva CRM Account Page Feature) retry #2"
+            href="#t831105624.2">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.0139906" data-sr-rescode="540" data-sr-order="29" data-sr-acttime="0.0">
+        <a
+            class="bar colorFailed" 
+            style="height: 2px;"
+            title="Check the data for Medicare view in all the items (in Veeva CRM Account Page Feature)"
+            href="#t881128189.0">&nbsp;</a>
+    </td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="horizontal-scale">
+                    <td class="left-padding">&nbsp;</td>
+                    <td colspan="10">&nbsp;</td>
+                        <td class="scale-10-label" colspan="10">10</td>
+                        <td class="scale-10-label" colspan="10">20</td>
+                        <td class="scale-10-label" colspan="10">30</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+        
+        
+    <h2>Feature Summary</h2>
+    <table class="testEvents">
+            <tr>
+            <th>Feature</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+
+            <tr>
+                <td><a href="#f1632594061">Veeva CRM Account Page Feature</a></td>
+                    <td>
+            77%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 127px;" 
+           title="23 succeeded" 
+                   ></a>
+    </td>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 38px;" 
+           title="3 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 55px;" 
+           title="10 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>36 (test executions: 40)</td>
+    <td>23</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td>10</td>
+        <td>00:12:32.5101867</td>
+
+            </tr>
+    </table>
+
+
+        <a name="error_summary" />
+        <h2>Error Summary</h2>
+        <table class="testEvents">
+                <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+                <tr>
+                    <td>
+                        <a href="#t620084565.0">checking the data for Parent Accounts (in VeevaCRM, Veeva CRM Account Page Feature)</a>
+                            <a href="#t620084565.1">retry #1</a>
+                            <a href="#t620084565.2">retry #2</a>
+                    </td>
+                        <td>
+            0%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 599px;" 
+           title="1 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1 (test executions: 3)</td>
+    <td>0</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+
+                </tr>
+                <tr>
+                    <td colspan="9" style="padding-left: 20px;"><div class="errorMessage">Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[(text()=&#39;Aetna Inc&#39;)]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64), retry #1: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64), retry #2: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#t831105624.0">Check the data for Employer view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</a>
+                            <a href="#t831105624.1">retry #1</a>
+                            <a href="#t831105624.2">retry #2</a>
+                    </td>
+                        <td>
+            0%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 599px;" 
+           title="1 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1 (test executions: 3)</td>
+    <td>0</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+
+                </tr>
+                <tr>
+                    <td colspan="9" style="padding-left: 20px;"><div class="errorMessage">Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#t881128189.0">Check the data for Medicare view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</a>
+                    </td>
+                        <td>
+            0%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 199px;" 
+           title="1 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+
+                </tr>
+                <tr>
+                    <td colspan="9" style="padding-left: 20px;"><div class="errorMessage">Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div></td>
+                </tr>
+        </table>
+
+        <h2>Scenario Summary</h2>
+            <a name="f1632594061" />
+            <h3>Feature: Veeva CRM Account Page Feature</h3>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1636226766.0">Scenario: Checking the the Accounts page</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:40.1972557</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1718344263.0">Scenario: Checking the the veiw drop down in Accounts page</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3158074</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t732085210.0">Scenario: checking the data for commercial channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:20.4363600</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1497435207.0">Scenario: Check the data for Account Detail for commercial view</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.1489085</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1973863736.0">Scenario: Check weather the Account Details name is same as AccountName or not  for commercial view</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.0419742</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-958418092.0">Scenario: Check Formulary for commercial view</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.0659600</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1949007184.0">Scenario: Check the Coverage Policy items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.1708953</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t461483067.0">Scenario: Check the pharmacy Services items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3767690</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-851845655.0">Scenario: Check the Plan Products items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.1509080</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1512217964.0">Scenario: Check the Specialty Providers items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.0749536</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1441543915.0">Scenario: Check the (Member Of) of items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.0509690</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-2129556614.0">Scenario: Check the Member items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.1159290</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-261051208.0">Scenario: Check the Address items for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.1738938</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1085924150.0">Scenario: Check the Account Plan for Commercial View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.1868852</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t819305325.0">Scenario: Check the View Hierarchy button for All View</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:09:06.7502515</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1548893161.0">Scenario: checking the data for Employer channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:12.2743201</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1372670687.0">Scenario: checking the data for PBM channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:17.9254905</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1497550129.0">Scenario: checking the data for Specialty Provider channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:18.9425891</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t625409885.0">Scenario: checking the data for State Medicaid channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:13.2089060</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1831658652.0">Scenario: checking the data for Tricare channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:13.0528440</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1337129431.0">Scenario: checking the data for VA channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:12.8970688</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t401730194.0">Scenario: checking the data for Medicare channel</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:13.4426922</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-2115479545.0">Scenario: checking the data for My Accounts</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:13.3047442</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t620084565.0">Scenario: checking the data for Parent Accounts</a>
+            <a href="#t620084565.1">retry #1</a>
+            <a href="#t620084565.2">retry #2</a>
+
+                        </td>
+                        
+                            <td>
+            0%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 599px;" 
+           title="1 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1 (test executions: 3)</td>
+    <td>0</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:06.1327425</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t831105624.0">Scenario: Check the data for Employer view in all the items</a>
+            <a href="#t831105624.1">retry #1</a>
+            <a href="#t831105624.2">retry #2</a>
+
+                        </td>
+                        
+                            <td>
+            0%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 599px;" 
+           title="1 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1 (test executions: 3)</td>
+    <td>0</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:22.0570785</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t881128189.0">Scenario: Check the data for Medicare view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            0%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorFailed" 
+           style="width: 199px;" 
+           title="1 failed" 
+                          href="#error_summary"
+        ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.0139906</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1773080313.0">Scenario: Check the data for Parent Accounts view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1128637749.0">Scenario: Check the data for My Accounts view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-182788434.0">Scenario: Check the data for PBM view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1787623259.0">Scenario: Check the data for Specialty view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-810295040.0">Scenario: Check the data for State Medicaid view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1249400405.0">Scenario: Check the data for Tricare view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-304787726.0">Scenario: Check the data for VA view in all the items</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t396121038.0">Scenario: Check the buttons in My Accounts screen</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-880052470.0">Scenario: Check the Hover of elements in My Accounts Page</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t768029806.0">Scenario: Check the Account Plan of elements in My Accounts Page</a>
+
+                        </td>
+                        
+                            <td>
+            n/a
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSkipped" 
+           style="width: 199px;" 
+           title="1 skipped" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+        <td>00:00:00</td>
+
+                        
+                    </tr>
+            </table>
+
+        <h2>Execution Details</h2>
+            <a name="t1636226766.0" />
+            <h3>Scenario: Checking the the Accounts page (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:42:40 PM</li>
+                <li>Execution time (sec): 40.1972557</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log"></pre>
+                        </td>
+                        <td>
+                            <!-- [Initialization: Feature - Veeva CRM Account Page Feature] -->
+                            <pre class="log">-&gt; Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+-&gt; Using default config</pre>
+                        </td>
+                        <td>Succeeded in 0.166s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user opens browser</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Checking the the Accounts page] -->
+                            <pre class="log">done: LoginStepDefination.GivenUserOpensBrowser() (8.1s)</pre>
+                        </td>
+                        <td>Succeeded in 8.18s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then user entered into the application by using valid login credentials</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Checking the the Accounts page] -->
+                            <pre class="log">done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (14.7s)</pre>
+                        </td>
+                        <td>Succeeded in 14.673s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And user is on home page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Checking the the Accounts page] -->
+                            <pre class="log">done: LoginStepDefination.ThenUserIsOnHomePage() (0.9s)</pre>
+                        </td>
+                        <td>Succeeded in 0.948s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check if call is associated with the user or not</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Checking the the Accounts page] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckIfCallIsAssociatedWithTheUserOrNot() (13.0s)</pre>
+                        </td>
+                        <td>Succeeded in 12.996s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then user clicks on my Accounts</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Checking the the Accounts page] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenUserClicksOnMyAccounts() (3.1s)</pre>
+                        </td>
+                        <td>Succeeded in 3.137s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And verifies the Title of the Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Checking the the Accounts page] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenVerifiesTheTitleOfThePage() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.072s</td>
+                    </tr>
+            </table>
+            <a name="t-1718344263.0" />
+            <h3>Scenario: Checking the the veiw drop down in Accounts page (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:20 PM</li>
+                <li>Execution time (sec): 0.3158074</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Checking the the veiw drop down in Accounts page] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the view Drop down values against Requirement</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Checking the the veiw drop down in Accounts page] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheViewDropDownValuesAgainstRequirement() (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.314s</td>
+                    </tr>
+            </table>
+            <a name="t732085210.0" />
+            <h3>Scenario: checking the data for commercial channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:21 PM</li>
+                <li>Execution time (sec): 20.43636</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for commercial channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is commercial</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for commercial channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsCommercial() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.088s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one commercial plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for commercial channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOneCommercialPlan() (19.9s)</pre>
+                        </td>
+                        <td>Succeeded in 19.948s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for commercial channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeader() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.046s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for commercial channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccount() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.353s</td>
+                    </tr>
+            </table>
+            <a name="t-1497435207.0" />
+            <h3>Scenario: Check the data for Account Detail for commercial view (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:41 PM</li>
+                <li>Execution time (sec): 0.1489085</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the data for Account Detail for commercial view] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Account Detail</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the data for Account Detail for commercial view] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInAccountDetail() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.147s</td>
+                    </tr>
+            </table>
+            <a name="t1973863736.0" />
+            <h3>Scenario: Check weather the Account Details name is same as AccountName or not  for commercial view (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:41 PM</li>
+                <li>Execution time (sec): 0.0419742</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check weather the Account Details name is same as AccountName or not  for commercial view] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then compare the accountname with the account Details</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check weather the Account Details name is same as AccountName or not  for commercial view] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCompareTheAccountnameWithTheAccountDetails() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.041s</td>
+                    </tr>
+            </table>
+            <a name="t-958418092.0" />
+            <h3>Scenario: Check Formulary for commercial view (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:41 PM</li>
+                <li>Execution time (sec): 0.06596</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check Formulary for commercial view] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Formulary</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check Formulary for commercial view] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInFormulary() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.065s</td>
+                    </tr>
+            </table>
+            <a name="t1949007184.0" />
+            <h3>Scenario: Check the Coverage Policy items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:41 PM</li>
+                <li>Execution time (sec): 0.1708953</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the Coverage Policy items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in CovergePolicy</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the Coverage Policy items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInCovergePolicy() (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.169s</td>
+                    </tr>
+            </table>
+            <a name="t461483067.0" />
+            <h3>Scenario: Check the pharmacy Services items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:42 PM</li>
+                <li>Execution time (sec): 0.376769</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the pharmacy Services items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in pharmacy Services</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the pharmacy Services items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInPharmacyServices() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.375s</td>
+                    </tr>
+            </table>
+            <a name="t-851845655.0" />
+            <h3>Scenario: Check the Plan Products items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:42 PM</li>
+                <li>Execution time (sec): 0.150908</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the Plan Products items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Plan Products</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the Plan Products items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInPlanProducts() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.15s</td>
+                    </tr>
+            </table>
+            <a name="t-1512217964.0" />
+            <h3>Scenario: Check the Specialty Providers items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:42 PM</li>
+                <li>Execution time (sec): 0.0749536</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the Specialty Providers items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Specialty Providers</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the Specialty Providers items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInSpecialtyProviders() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.073s</td>
+                    </tr>
+            </table>
+            <a name="t-1441543915.0" />
+            <h3>Scenario: Check the (Member Of) of items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:42 PM</li>
+                <li>Execution time (sec): 0.050969</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the (Member Of) of items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Member Of</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the (Member Of) of items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInMemberOf() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.051s</td>
+                    </tr>
+            </table>
+            <a name="t-2129556614.0" />
+            <h3>Scenario: Check the Member items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:42 PM</li>
+                <li>Execution time (sec): 0.115929</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the Member items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Member</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the Member items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInMember() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.115s</td>
+                    </tr>
+            </table>
+            <a name="t-261051208.0" />
+            <h3>Scenario: Check the Address items for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:42 PM</li>
+                <li>Execution time (sec): 0.1738938</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the Address items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Address</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the Address items for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInAddress() (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.172s</td>
+                    </tr>
+            </table>
+            <a name="t1085924150.0" />
+            <h3>Scenario: Check the Account Plan for Commercial View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:43 PM</li>
+                <li>Execution time (sec): 0.1868852</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the Account Plan for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items in Account Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the Account Plan for Commercial View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheItemsInAccountPlan() (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.186s</td>
+                    </tr>
+            </table>
+            <a name="t819305325.0" />
+            <h3>Scenario: Check the View Hierarchy button for All View (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:43:43 PM</li>
+                <li>Execution time (sec): 546.7502515</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the View Hierarchy button for All View] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the View Hierarchy button</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the View Hierarchy button for All View] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheViewHierarchyButton() (546.7s)</pre>
+                        </td>
+                        <td>Succeeded in 546.75s</td>
+                    </tr>
+            </table>
+            <a name="t-1548893161.0" />
+            <h3>Scenario: checking the data for Employer channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:52:50 PM</li>
+                <li>Execution time (sec): 12.2743201</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Employer channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Employer</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Employer channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsEmployer() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.103s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one Employer plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Employer channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOneEmployerPlan() (8.9s)</pre>
+                        </td>
+                        <td>Succeeded in 8.897s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Employer Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Employer channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfEmployerPlan() (3.0s)</pre>
+                        </td>
+                        <td>Succeeded in 3.047s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Employer Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Employer channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfEmployerPlan() (0.2s)</pre>
+                        </td>
+                        <td>Succeeded in 0.227s</td>
+                    </tr>
+            </table>
+            <a name="t1372670687.0" />
+            <h3>Scenario: checking the data for PBM channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:53:02 PM</li>
+                <li>Execution time (sec): 17.9254905</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for PBM channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is PBM</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for PBM channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsPBM() (3.9s)</pre>
+                        </td>
+                        <td>Succeeded in 3.948s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one PBM plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for PBM channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOnePBMPlan() (7.1s)</pre>
+                        </td>
+                        <td>Succeeded in 7.133s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of PBM Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for PBM channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfPBMPlan() (3.9s)</pre>
+                        </td>
+                        <td>Succeeded in 3.888s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of PBM Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for PBM channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfPBMPlan() (3.0s)</pre>
+                        </td>
+                        <td>Succeeded in 2.956s</td>
+                    </tr>
+            </table>
+            <a name="t-1497550129.0" />
+            <h3>Scenario: checking the data for Specialty Provider channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:53:20 PM</li>
+                <li>Execution time (sec): 18.9425891</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Specialty Provider channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Specialty Provider</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Specialty Provider channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsSpecialtyProvider() (3.7s)</pre>
+                        </td>
+                        <td>Succeeded in 3.736s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one Specialty Provider plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Specialty Provider channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOneSpecialtyProviderPlan() (14.2s)</pre>
+                        </td>
+                        <td>Succeeded in 14.187s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Specialty Provider Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Specialty Provider channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfSpecialtyProviderPlan() (0.9s)</pre>
+                        </td>
+                        <td>Succeeded in 0.917s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Specialty Provider Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Specialty Provider channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfSpecialtyProviderPlan() (0.1s)</pre>
+                        </td>
+                        <td>Succeeded in 0.102s</td>
+                    </tr>
+            </table>
+            <a name="t625409885.0" />
+            <h3>Scenario: checking the data for State Medicaid channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:53:39 PM</li>
+                <li>Execution time (sec): 13.208906</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for State Medicaid channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is State Medicaid</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for State Medicaid channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsStateMedicaid() (2.9s)</pre>
+                        </td>
+                        <td>Succeeded in 2.909s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one State Medicaid plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for State Medicaid channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOneStateMedicaidPlan() (7.1s)</pre>
+                        </td>
+                        <td>Succeeded in 7.147s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of State Medicaid Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for State Medicaid channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfStateMedicaidPlan() (2.7s)</pre>
+                        </td>
+                        <td>Succeeded in 2.674s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of State Medicaid Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for State Medicaid channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfStateMedicaidPlan() (0.5s)</pre>
+                        </td>
+                        <td>Succeeded in 0.478s</td>
+                    </tr>
+            </table>
+            <a name="t-1831658652.0" />
+            <h3>Scenario: checking the data for Tricare channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:53:52 PM</li>
+                <li>Execution time (sec): 13.052844</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Tricare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Tricare</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Tricare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsTricare() (2.9s)</pre>
+                        </td>
+                        <td>Succeeded in 2.863s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one Tricare plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Tricare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOneTricarePlan() (9.8s)</pre>
+                        </td>
+                        <td>Succeeded in 9.804s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Tricare Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Tricare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfTricarePlan() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.046s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Tricare Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Tricare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfTricarePlan() (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.339s</td>
+                    </tr>
+            </table>
+            <a name="t1337129431.0" />
+            <h3>Scenario: checking the data for VA channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:54:05 PM</li>
+                <li>Execution time (sec): 12.8970688</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for VA channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is VA</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for VA channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsVA() (2.8s)</pre>
+                        </td>
+                        <td>Succeeded in 2.81s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on one VA plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for VA channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnOneVAPlan() (7.1s)</pre>
+                        </td>
+                        <td>Succeeded in 7.148s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of VA Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for VA channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfVAPlan() (2.5s)</pre>
+                        </td>
+                        <td>Succeeded in 2.55s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of VA Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for VA channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfVAPlan() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.387s</td>
+                    </tr>
+            </table>
+            <a name="t401730194.0" />
+            <h3>Scenario: checking the data for Medicare channel (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:54:18 PM</li>
+                <li>Execution time (sec): 13.4426922</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Medicare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Medicare</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Medicare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsMedicare() (2.9s)</pre>
+                        </td>
+                        <td>Succeeded in 2.9s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on Medicare plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Medicare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnMedicarePlan() (7.1s)</pre>
+                        </td>
+                        <td>Succeeded in 7.138s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Medicare Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Medicare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfMedicarePlan() (3.1s)</pre>
+                        </td>
+                        <td>Succeeded in 3.061s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Medicare Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Medicare channel] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfMedicarePlan() (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.343s</td>
+                    </tr>
+            </table>
+            <a name="t-2115479545.0" />
+            <h3>Scenario: checking the data for My Accounts (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 11/13/2019 2:54:31 PM</li>
+                <li>Execution time (sec): 13.3047442</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for My Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is My Accounts</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for My Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsMyAccounts() (2.8s)</pre>
+                        </td>
+                        <td>Succeeded in 2.829s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on My Accounts plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for My Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenClickOnMyAccountsPlan() (10.1s)</pre>
+                        </td>
+                        <td>Succeeded in 10.057s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of My Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for My Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheHeaderOfMyAccountsPlan() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.044s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of My Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for My Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfMyAccountsPlan() (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.373s</td>
+                    </tr>
+            </table>
+            <a name="t620084565.0" />
+            <h3>Scenario: checking the data for Parent Accounts (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:54:45 PM</li>
+                <li>Execution time (sec): 6.0527912</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[(text()=&#39;Aetna Inc&#39;)]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Parent Accounts</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.WhenViewSelectedIsParentAccounts() (4.3s)</pre>
+                        </td>
+                        <td>Succeeded in 4.311s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on Parent Accounts plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[(text()='Aetna Inc')]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[(text()='Aetna Inc')]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[(text()='Aetna Inc')]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_Parents_Accounts_plan() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 221
+   at VeevaCRM.Pages.AccountsPage.Click_on_Parents_Accounts_plan() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1084
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.WhenClickOnParentAccountsPlan() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 333
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckingTheDataForParentAccounts() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 157
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 1.7s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Parent Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Parent Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0.038s</td>
+                    </tr>
+            </table>
+            <a name="t620084565.1" />
+            <h3>Scenario: checking the data for Parent Accounts (in VeevaCRM, Veeva CRM Account Page Feature) retry #1</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:54:51 PM</li>
+                <li>Execution time (sec): 0.0659607</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Parent Accounts</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_AccountsBtn() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 44
+   at VeevaCRM.Pages.AccountsPage.Click_on_Parents_Accounts_plan_view() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1078
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.WhenViewSelectedIsParentAccounts() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 327
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckingTheDataForParentAccounts() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 157
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 0.062s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on Parent Accounts plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Parent Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Parent Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0.001s</td>
+                    </tr>
+            </table>
+            <a name="t620084565.2" />
+            <h3>Scenario: checking the data for Parent Accounts (in VeevaCRM, Veeva CRM Account Page Feature) retry #2</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:54:51 PM</li>
+                <li>Execution time (sec): 0.0139906</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When view selected is Parent Accounts</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_AccountsBtn() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 44
+   at VeevaCRM.Pages.AccountsPage.Click_on_Parents_Accounts_plan_view() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1078
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.WhenViewSelectedIsParentAccounts() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 327
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckingTheDataForParentAccounts() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 157
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 0.011s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And click on Parent Accounts plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check the Header of Parent Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">And check the selected items in the particular Account of Parent Accounts Plan</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - checking the data for Parent Accounts] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0s</td>
+                    </tr>
+            </table>
+            <a name="t831105624.0" />
+            <h3>Scenario: Check the data for Employer view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:54:51 PM</li>
+                <li>Execution time (sec): 7.0144377</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the data for Employer view in all the items] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items for Employer View</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the data for Employer view in all the items] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_AccountsBtn() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 44
+   at VeevaCRM.Pages.AccountsPage.Select_Employer_channel() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1099
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.ThenCheckTheItemsForEmployerView() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 352
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckTheDataForEmployerViewInAllTheItems() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 163
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 7.013s</td>
+                    </tr>
+            </table>
+            <a name="t831105624.1" />
+            <h3>Scenario: Check the data for Employer view in all the items (in VeevaCRM, Veeva CRM Account Page Feature) retry #1</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:54:58 PM</li>
+                <li>Execution time (sec): 8.0293215</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the data for Employer view in all the items] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items for Employer View</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the data for Employer view in all the items] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_AccountsBtn() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 44
+   at VeevaCRM.Pages.AccountsPage.Select_Employer_channel() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1099
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.ThenCheckTheItemsForEmployerView() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 352
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckTheDataForEmployerViewInAllTheItems() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 163
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 8.028s</td>
+                    </tr>
+            </table>
+            <a name="t831105624.2" />
+            <h3>Scenario: Check the data for Employer view in all the items (in VeevaCRM, Veeva CRM Account Page Feature) retry #2</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:55:06 PM</li>
+                <li>Execution time (sec): 7.0133193</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the data for Employer view in all the items] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items for Employer View</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the data for Employer view in all the items] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_AccountsBtn() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 44
+   at VeevaCRM.Pages.AccountsPage.Select_Employer_channel() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1099
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.ThenCheckTheItemsForEmployerView() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 352
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckTheDataForEmployerViewInAllTheItems() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 163
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 7.011s</td>
+                    </tr>
+            </table>
+            <a name="t881128189.0" />
+            <h3>Scenario: Check the data for Medicare view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Failed</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0.0139906</li>
+                <li>Thread: #0</li>
+                <li>Error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given user is in Accounts Page</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Check the data for Medicare view in all the items] -->
+                            <pre class="log">done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.001s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Check whether the Account belong medicare view or not</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the data for Medicare view in all the items] -->
+                            <pre class="log">error: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</pre>
+                                <div class="errorMessage">no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)</div>
+                                <pre class="stackTrace">OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]&quot;}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+   at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass19_0.&lt;XPath&gt;b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at VeevaCRM.Pages.AccountsPage.get_AccountsBtn() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 44
+   at VeevaCRM.Pages.AccountsPage.Vefrify_selected_Medicare_view() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Pages\AccountsPage.cs:line 1128
+   at VeevaCRM.StepDefinations.AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongMedicareViewOrNot() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\StepDefinations\AccountsPageStepDefination.cs:line 363
+   at lambda_method(Closure , IContextManager )
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 411
+   at TechTalk.SpecRun.SpecFlowPlugin.Runtime.RunnerTestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 316
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 132
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors() in D:\a\1\s\TechTalk.SpecFlow\TestRunner.cs:line 59
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.ScenarioCleanup()
+   at VeevaCRM.Features.VeevaCRMAccountPageFeatureFeature.CheckTheDataForMedicareViewInAllTheItems() in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\Features\Accounts.feature:line 169
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestNodeTask.Execute()</pre>
+                        </td>
+                        <td>Failed in 0.011s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then check the items for Medicare View</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Check the data for Medicare view in all the items] -->
+                            <pre class="log">skipped because of previous errors</pre>
+                        </td>
+                        <td>Skipped in 0.001s</td>
+                    </tr>
+            </table>
+            <a name="t1773080313.0" />
+            <h3>Scenario: Check the data for Parent Accounts view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t-1128637749.0" />
+            <h3>Scenario: Check the data for My Accounts view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t-182788434.0" />
+            <h3>Scenario: Check the data for PBM view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t-1787623259.0" />
+            <h3>Scenario: Check the data for Specialty view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t-810295040.0" />
+            <h3>Scenario: Check the data for State Medicaid view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t1249400405.0" />
+            <h3>Scenario: Check the data for Tricare view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t-304787726.0" />
+            <h3>Scenario: Check the data for VA view in all the items (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t396121038.0" />
+            <h3>Scenario: Check the buttons in My Accounts screen (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t-880052470.0" />
+            <h3>Scenario: Check the Hover of elements in My Accounts Page (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+            <a name="t768029806.0" />
+            <h3>Scenario: Check the Account Plan of elements in My Accounts Page (in VeevaCRM, Veeva CRM Account Page Feature)</h3>
+                <div class="description">
+                    tags: SmokeTest
+                </div>
+            <ul>
+                <li>Status: Skipped</li>
+                <li>Start time: 11/13/2019 2:55:13 PM</li>
+                <li>Execution time (sec): 0</li>
+                <li>Thread: #-1</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+	</body>
+</html>
+</a><div style="position: absolute; top:0px; right:10px; z-index: 1000; text-align: right; font-size: small; color: #FF5555">
+Generated by an evaluation version of SpecRun.<br />
+This version can be used for evaluation purposes only.<br />
+For obtaining a registered license please visit <a href="http://www.specflow.org/plus">http://www.specflow.org/plus</a>.
+</div>

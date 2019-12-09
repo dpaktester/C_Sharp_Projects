@@ -1,0 +1,9 @@
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\bin\Debug\netstandard2.0\VeevaCRMAutomationPOM.deps.json
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\bin\Debug\netstandard2.0\VeevaCRMAutomationPOM.dll
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\obj\Debug\netstandard2.0\VeevaCRMAutomationPOM.csprojAssemblyReference.cache
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\obj\Debug\netstandard2.0\VeevaCRMAutomationPOM.csproj.CoreCompileInputs.cache
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\obj\Debug\netstandard2.0\VeevaCRMAutomationPOM.AssemblyInfoInputs.cache
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\obj\Debug\netstandard2.0\VeevaCRMAutomationPOM.AssemblyInfo.cs
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\bin\Debug\netstandard2.0\VeevaCRMAutomationPOM.pdb
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\obj\Debug\netstandard2.0\VeevaCRMAutomationPOM.dll
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMAutomationPOM\obj\Debug\netstandard2.0\VeevaCRMAutomationPOM.pdb

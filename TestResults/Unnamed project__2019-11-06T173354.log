@@ -1,0 +1,104 @@
+﻿2019-11-06T17:33:54.5612459+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-06T17:33:54.5612459+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-06T17:33:54.5612459+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-06T17:33:54.6062185+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-06T17:33:54.6072183+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-06T17:33:54.6072183+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-06T17:33:54.6491917+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-06T173354.log
+2019-11-06T17:33:54.6641852+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-06T17:33:54.6731776+05:30;Thread#13;Info;Checking license
+2019-11-06T17:33:54.6981622+05:30;Thread#13;Info;Evaluation mode: test execution starts in 6 seconds... (this delay is removed in the registered version)
+2019-11-06T17:34:00.7008678+05:30;Thread#13;Info;Evaluation delay finished.
+2019-11-06T17:34:00.7058644+05:30;Thread#13;Info;License check completed
+2019-11-06T17:34:00.7058644+05:30;Thread#13;Info;starting test run
+2019-11-06T17:34:00.7298497+05:30;Thread#13;Info;Discovering target: Default
+2019-11-06T17:34:00.7298497+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-06T17:34:01.6093220+05:30:Appdomain Disposed
+2019-11-06T17:34:01.6093220+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-06T17:34:01.6103203+05:30:Test Suite Dump
+2019-11-06T17:34:01.6113207+05:30:#0: Unnamed project/ - 
+2019-11-06T17:34:01.6113207+05:30:#1: Default - 
+2019-11-06T17:34:01.6113207+05:30:#2: VeevaCRM - 
+2019-11-06T17:34:01.6113207+05:30:#3: Veeva CRM Account Page Feature - 
+2019-11-06T17:34:01.6562918+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-11-06T17:34:01.6562918+05:30:#5: Checking the the veiw drop down in Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+veiw+drop+down+in+Accounts+page
+2019-11-06T17:34:01.6562918+05:30:#6: checking the data for commercial channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+commercial+channel
+2019-11-06T17:34:01.6562918+05:30:#7: Check the data for Account Detail for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Account+Detail+for+commercial+view
+2019-11-06T17:34:01.6562918+05:30:#8: Check weather the Account Details name is same as AccountName or not  for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+weather+the+Account+Details+name+is+same+as+AccountName+or+not++for+commercial+view
+2019-11-06T17:34:01.6562918+05:30:#9: Check Formulary for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+Formulary+for+commercial+view
+2019-11-06T17:34:01.6562918+05:30:#10: Check the Coverage Policy items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Coverage+Policy+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#11: Check the pharmacy Services items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+pharmacy+Services+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#12: Check the Plan Products items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Plan+Products+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#13: Check the Specialty Providers items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Specialty+Providers+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#14: Check the (Member Of) of items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+(Member+Of)+of+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#15: Check the Member items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Member+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#16: Check the Address items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Address+items+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#17: Check the Account Plan for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Account+Plan+for+Commercial+View
+2019-11-06T17:34:01.6562918+05:30:#18: Check the View Hierarchy button for All View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+View+Hierarchy+button+for+All+View
+2019-11-06T17:34:01.6562918+05:30:#19: checking the data for Employer channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Employer+channel
+2019-11-06T17:34:01.6562918+05:30:End: Test Suite Dump
+2019-11-06T17:34:01.6812759+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-06T17:34:01.6832754+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-11-06T17:34:01.6832754+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-11-06T17:34:01.6872723+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-06T17:34:01.6872723+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-11-06T17:34:01.6872723+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-11-06T17:34:01.6872723+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-11-06T17:34:01.6882722+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-11-06T17:34:01.6892715+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-06T17:34:01.6922699+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-11-06T17:34:01.6942685+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-06T17:34:01.6942685+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-06T17:34:01.6962670+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-11-06T17:34:01.8101974+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-11-06T17:34:02.0300612+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-11-06T17:34:02.0460521+05:30:Thread#0:T:-> Using default config
+2019-11-06T17:34:02.1080166+05:30:Thread#0:B:Given user opens browser
+2019-11-06T17:34:11.0366308+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (8.8s)
+2019-11-06T17:34:11.0376310+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-11-06T17:34:15.3566628+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (4.3s)
+2019-11-06T17:34:15.3566628+05:30:Thread#0:B:And user is on home page
+2019-11-06T17:34:25.2322203+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (9.9s)
+2019-11-06T17:34:25.2322203+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-11-06T17:34:53.6218061+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='contentWrapper']/div[2]/table/tbody/tr/td[2]/div/div/div/h2"}
+2019-11-06T17:34:53.6218061+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.70)
+2019-11-06T17:34:53.6218061+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-06T17:34:55.4274269+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-11-06T17:34:55.4284268+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:34:56.1309924+05:30:Thread#0:B:And verifies the Title of the Page
+2019-11-06T17:34:56.1319921+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:34:57.6360750+05:30:Thread#0:TestItem#4:Scheduler: reschedule tests for testitem #4
+2019-11-06T17:34:57.6370758+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-06T17:34:57.6370758+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2019-11-06T17:34:57.6370758+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-11-06T17:34:57.6370758+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-06T17:34:57.6370758+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-11-06T17:34:57.6370758+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-11-06T17:34:57.6370758+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-11-06T17:34:57.6370758+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-11-06T17:34:57.6370758+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-11-06T17:34:57.6590623+05:30:Thread#0: Test #4/0 is finished on thread #0 as Failed within 55.8478657 seconds
+2019-11-06T17:34:57.6610609+05:30:Thread#0: Test #4/1 is started on thread #0
+2019-11-06T17:34:59.3765509+05:30:Thread#0:B:Given user opens browser
+2019-11-06T17:35:00.9126023+05:30:Thread#0:T:error: The process cannot access the file 'E:\C_Sharp_Logs\201906340502.log' because it is being used by another process.
+2019-11-06T17:35:01.9919351+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-11-06T17:35:01.9919351+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:35:02.8620160+05:30:Thread#0:B:And user is on home page
+2019-11-06T17:35:02.8620160+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:35:03.3748499+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-11-06T17:35:03.3748499+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:35:03.8727901+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-11-06T17:35:03.8727901+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:35:04.4224513+05:30:Thread#0:B:And verifies the Title of the Page
+2019-11-06T17:35:04.4224513+05:30:Thread#0:T:skipped because of previous errors
+2019-11-06T17:35:05.1639942+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-06T17:35:05.1639942+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2019-11-06T17:35:05.1639942+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-11-06T17:35:05.1639942+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-06T17:35:05.1639942+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-11-06T17:35:05.1639942+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-11-06T17:35:05.1639942+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-11-06T17:35:05.1639942+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-11-06T17:35:05.1639942+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-11-06T17:35:05.1649931+05:30:Thread#0: Test #4/1 is finished on thread #0 as Failed within 7.5039322 seconds
+2019-11-06T17:35:05.1649931+05:30:Thread#0: Test #4/2 is started on thread #0

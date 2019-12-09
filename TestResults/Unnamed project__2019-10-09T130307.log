@@ -1,0 +1,132 @@
+﻿2019-10-09T13:03:07.2282833+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-10-09T13:03:07.2292820+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-10-09T13:03:07.2292820+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-10-09T13:03:07.2802507+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-09T13:03:07.2802507+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-10-09T13:03:07.2802507+05:30;VSTestExecutionThread;Info;Profile: 
+2019-10-09T13:03:07.3022383+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-09T130307.log
+2019-10-09T13:03:07.3152303+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-10-09T13:03:07.3212257+05:30;Thread#13;Info;Checking license
+2019-10-09T13:03:07.3332192+05:30;Thread#13;Info;Evaluation mode: test execution starts in 7 seconds... (this delay is removed in the registered version)
+2019-10-09T13:03:14.3339378+05:30;Thread#13;Info;Evaluation delay finished.
+2019-10-09T13:03:14.3389336+05:30;Thread#13;Info;License check completed
+2019-10-09T13:03:14.3389336+05:30;Thread#13;Info;starting test run
+2019-10-09T13:03:14.3459294+05:30;Thread#13;Info;Discovering target: Default
+2019-10-09T13:03:14.3459294+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-09T13:03:14.6867206+05:30:Appdomain Disposed
+2019-10-09T13:03:14.6867206+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-09T13:03:14.6877206+05:30:Test Suite Dump
+2019-10-09T13:03:14.6897185+05:30:#0: Unnamed project/ - 
+2019-10-09T13:03:14.6897185+05:30:#1: Default - 
+2019-10-09T13:03:14.6897185+05:30:#2: VeevaCRM - 
+2019-10-09T13:03:14.6897185+05:30:#3: Veeva CRM Account Page Feature - 
+2019-10-09T13:03:14.7236980+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-10-09T13:03:14.7236980+05:30:#5: Checking the the veiw drop down in Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+veiw+drop+down+in+Accounts+page
+2019-10-09T13:03:14.7236980+05:30:End: Test Suite Dump
+2019-10-09T13:03:14.7436856+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T13:03:14.7456851+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-10-09T13:03:14.7456851+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-10-09T13:03:14.7496816+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T13:03:14.7496816+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-10-09T13:03:14.7496816+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-10-09T13:03:14.7496816+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-10-09T13:03:14.7506809+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-10-09T13:03:14.7516804+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-10-09T13:03:14.7546785+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-10-09T13:03:14.7566778+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-09T13:03:14.7576769+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-09T13:03:14.7586762+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-10-09T13:03:14.8085677+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-10-09T13:03:14.9301528+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-10-09T13:03:14.9351492+05:30:Thread#0:T:-> Using default config
+2019-10-09T13:03:14.9841195+05:30:Thread#0:B:Given user opens browser
+2019-10-09T13:03:24.4349382+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (9.4s)
+2019-10-09T13:03:24.4359379+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-10-09T13:03:38.1127221+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (13.7s)
+2019-10-09T13:03:38.1127221+05:30:Thread#0:B:And user is on home page
+2019-10-09T13:03:38.1297116+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (0.0s)
+2019-10-09T13:03:38.1297116+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-10-09T13:03:51.7232611+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckIfCallIsAssociatedWithTheUserOrNot() (13.6s)
+2019-10-09T13:03:51.7232611+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-10-09T13:04:01.8275139+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenUserClicksOnMyAccounts() (10.1s)
+2019-10-09T13:04:01.8275139+05:30:Thread#0:B:And verifies the Title of the Page
+2019-10-09T13:04:01.8764824+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenVerifiesTheTitleOfThePage() (0.0s)
+2019-10-09T13:04:01.8884746+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T13:04:01.8884746+05:30:Thread#:Scheduler: testitem #5 from normal test queue 
+2019-10-09T13:04:01.8884746+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-10-09T13:04:01.8884746+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T13:04:01.8884746+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-10-09T13:04:01.8884746+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-10-09T13:04:01.8884746+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-10-09T13:04:01.8884746+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-10-09T13:04:01.8884746+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-10-09T13:04:01.8994684+05:30:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 47.0909007 seconds
+2019-10-09T13:04:01.9014675+05:30:Thread#0: Test #5/0 is started on thread #0
+2019-10-09T13:04:01.9014675+05:30:Thread#0:B:Given user is in Accounts Page
+2019-10-09T13:04:01.9024664+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-10-09T13:04:01.9024664+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-10-09T13:04:02.3490430+05:30:Thread#0:T:error: Assert.Fail failed. Assert.Equals should not be used for Assertions. Please use Assert.AreEqual & overloads instead.
+2019-10-09T13:04:02.3490430+05:30:Thread#0:B:And Select each Drop down value one by one
+2019-10-09T13:04:02.3490430+05:30:Thread#0:T:skipped because of previous errors
+2019-10-09T13:04:02.6302872+05:30:Thread#0:TestItem#5:Scheduler: reschedule tests for testitem #5
+2019-10-09T13:04:02.6302872+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T13:04:02.6302872+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2019-10-09T13:04:02.6302872+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-10-09T13:04:02.6302872+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T13:04:02.6302872+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-10-09T13:04:02.6302872+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-10-09T13:04:02.6302872+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-10-09T13:04:02.6302872+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-10-09T13:04:02.6302872+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-10-09T13:04:02.6302872+05:30:Thread#0: Test #5/0 is finished on thread #0 as Failed within 0.7288197 seconds
+2019-10-09T13:04:02.6302872+05:30:Thread#0: Test #5/1 is started on thread #0
+2019-10-09T13:04:02.6302872+05:30:Thread#0:B:Given user is in Accounts Page
+2019-10-09T13:04:02.6302872+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-10-09T13:04:02.6302872+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-10-09T13:04:02.9462912+05:30:Thread#0:T:error: Assert.Fail failed. Assert.Equals should not be used for Assertions. Please use Assert.AreEqual & overloads instead.
+2019-10-09T13:04:02.9462912+05:30:Thread#0:B:And Select each Drop down value one by one
+2019-10-09T13:04:02.9472902+05:30:Thread#0:T:skipped because of previous errors
+2019-10-09T13:04:02.9472902+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T13:04:02.9472902+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2019-10-09T13:04:02.9472902+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-10-09T13:04:02.9472902+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T13:04:02.9472902+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-10-09T13:04:02.9472902+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-10-09T13:04:02.9472902+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-10-09T13:04:02.9472902+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-10-09T13:04:02.9472902+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-10-09T13:04:02.9482898+05:30:Thread#0: Test #5/1 is finished on thread #0 as Failed within 0.3180026 seconds
+2019-10-09T13:04:02.9482898+05:30:Thread#0: Test #5/2 is started on thread #0
+2019-10-09T13:04:02.9482898+05:30:Thread#0:B:Given user is in Accounts Page
+2019-10-09T13:04:02.9482898+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-10-09T13:04:02.9482898+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-10-09T13:04:03.3531750+05:30:Thread#0:T:error: Assert.Fail failed. Assert.Equals should not be used for Assertions. Please use Assert.AreEqual & overloads instead.
+2019-10-09T13:04:03.3531750+05:30:Thread#0:B:And Select each Drop down value one by one
+2019-10-09T13:04:03.3531750+05:30:Thread#0:T:skipped because of previous errors
+2019-10-09T13:04:03.3531750+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T13:04:03.3531750+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-10-09T13:04:03.3531750+05:30:Thread#0:Scheduler: enumerator for thread is at end
+2019-10-09T13:04:03.3531750+05:30:Thread#0:Scheduler: No more tests for thread
+2019-10-09T13:04:03.3531750+05:30:Thread#0: Test #5/2 is finished on thread #0 as Failed within 0.4048852 seconds
+2019-10-09T13:04:03.4000487+05:30:Appdomain Disposed
+2019-10-09T13:04:03.4000487+05:30:Trying to cancel thread
+2019-10-09T13:04:03.4000487+05:30:Thread cancelled
+2019-10-09T13:04:03.4000487+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-10-09T13:04:03.4000487+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-10-09T13:04:03.4000487+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-10-09T13:04:03.4000487+05:30;Thread#13;Info;test run finished
+2019-10-09T13:04:03.4000487+05:30;Thread#13;Info;publishing test results
+2019-10-09T13:04:03.4625472+05:30;Thread#13;Info;test results published
+2019-10-09T13:04:03.4625472+05:30;Thread#13;Info;generating reports
+2019-10-09T13:04:03.6969179+05:30;Thread#13;Info;Starting external report generation process
+2019-10-09T13:04:07.2699213+05:30;Thread#13;Info;Successfully generated reports.
+2019-10-09T13:04:07.2699213+05:30;Thread#13;Info;Successfully generated reports
+2019-10-09T13:04:07.2855445+05:30:Total: 2 (test executions: 4)
+2019-10-09T13:04:07.2855445+05:30:Succeeded: 1
+2019-10-09T13:04:07.2855445+05:30:Ignored: 0
+2019-10-09T13:04:07.2855445+05:30:Pending: 0
+2019-10-09T13:04:07.2855445+05:30:Skipped: 0
+2019-10-09T13:04:07.2855445+05:30:Failed: 1
+2019-10-09T13:04:07.3011709+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-10-09T13:04:07.3011709+05:30;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-09T130307.html'
+========== End of log file ==========

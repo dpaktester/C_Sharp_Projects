@@ -1,0 +1,45 @@
+﻿2019-11-25T12:58:28.8382923+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-25T12:58:28.8382923+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-25T12:58:28.8382923+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-25T12:58:28.8682742+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-25T12:58:28.8682742+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-25T12:58:28.8682742+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-25T12:58:28.8892615+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-25T125828.log
+2019-11-25T12:58:28.9022529+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-25T12:58:28.9082492+05:30;Thread#13;Info;Checking license
+2019-11-25T12:58:28.9192427+05:30;Thread#13;Info;Evaluation mode: test execution starts in 13 seconds... (this delay is removed in the registered version)
+2019-11-25T12:58:41.9203122+05:30;Thread#13;Info;Evaluation delay finished.
+2019-11-25T12:58:41.9303116+05:30;Thread#13;Info;License check completed
+2019-11-25T12:58:41.9303116+05:30;Thread#13;Info;starting test run
+2019-11-25T12:58:41.9761719+05:30;Thread#13;Info;Discovering target: Default
+2019-11-25T12:58:41.9771709+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-25T12:58:42.3943694+05:30:Appdomain Disposed
+2019-11-25T12:58:42.3943694+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-25T12:58:42.3953680+05:30:Test Suite Dump
+2019-11-25T12:58:42.3973670+05:30:#0: Unnamed project/ - 
+2019-11-25T12:58:42.3973670+05:30:End: Test Suite Dump
+2019-11-25T12:58:42.4183548+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-25T12:58:42.4203533+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-11-25T12:58:42.4203533+05:30:Thread#0:Scheduler: enumerator for thread is at end
+2019-11-25T12:58:42.4213515+05:30:Thread#0:Scheduler: No more tests for thread
+2019-11-25T12:58:42.4223525+05:30:Trying to cancel thread
+2019-11-25T12:58:42.4233508+05:30:Thread cancelled
+2019-11-25T12:58:42.4293478+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-25T12:58:42.4293478+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-11-25T12:58:42.4293478+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-11-25T12:58:42.4303473+05:30;Thread#13;Info;test run finished
+2019-11-25T12:58:42.4303473+05:30;Thread#13;Info;publishing test results
+2019-11-25T12:58:42.4879405+05:30;Thread#13;Info;test results published
+2019-11-25T12:58:42.4879405+05:30;Thread#13;Info;generating reports
+2019-11-25T12:58:42.6273426+05:30;Thread#13;Info;Starting external report generation process
+2019-11-25T12:58:45.4135035+05:30;Thread#13;Error;Could not generate test run result reports. An error occurred in the generator.
+2019-11-25T12:58:45.4135035+05:30;Thread#13;Error;External program returned exit code '-2'
+2019-11-25T12:58:45.4135035+05:30;Thread#13;Info;Failed generating reports
+2019-11-25T12:58:45.4214987+05:30:Total: 0
+2019-11-25T12:58:45.4234971+05:30:Succeeded: 0
+2019-11-25T12:58:45.4244958+05:30:Ignored: 0
+2019-11-25T12:58:45.4244958+05:30:Pending: 0
+2019-11-25T12:58:45.4254966+05:30:Skipped: 0
+2019-11-25T12:58:45.4254966+05:30:Failed: 0
+2019-11-25T12:58:45.4344895+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+========== End of log file ==========

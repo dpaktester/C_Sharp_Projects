@@ -1,0 +1,794 @@
+﻿2019-11-13T16:22:48.8227065+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-13T16:22:48.8227065+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-13T16:22:48.8227065+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-13T16:22:48.8766740+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-13T16:22:48.8766740+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-13T16:22:48.8766740+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-13T16:22:48.9006598+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-13T162248.log
+2019-11-13T16:22:48.9136519+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-13T16:22:48.9226465+05:30;Thread#13;Info;Checking license
+2019-11-13T16:22:48.9356384+05:30;Thread#13;Info;Evaluation mode: test execution starts in 7 seconds... (this delay is removed in the registered version)
+2019-11-13T16:22:55.9374013+05:30;Thread#13;Info;Evaluation delay finished.
+2019-11-13T16:22:55.9423973+05:30;Thread#13;Info;License check completed
+2019-11-13T16:22:55.9423973+05:30;Thread#13;Info;starting test run
+2019-11-13T16:22:55.9503937+05:30;Thread#13;Info;Discovering target: Default
+2019-11-13T16:22:55.9503937+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-13T16:22:56.3931258+05:30:Appdomain Disposed
+2019-11-13T16:22:56.3931258+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-13T16:22:56.3941256+05:30:Test Suite Dump
+2019-11-13T16:22:56.3961246+05:30:#0: Unnamed project/ - 
+2019-11-13T16:22:56.3961246+05:30:#1: Default - 
+2019-11-13T16:22:56.3961246+05:30:#2: VeevaCRM - 
+2019-11-13T16:22:56.3961246+05:30:#3: Veeva CRM Account Page Feature - 
+2019-11-13T16:22:56.4331013+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-11-13T16:22:56.4331013+05:30:#5: Checking the the veiw drop down in Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+veiw+drop+down+in+Accounts+page
+2019-11-13T16:22:56.4331013+05:30:#6: checking the data for commercial channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+commercial+channel
+2019-11-13T16:22:56.4331013+05:30:#7: Check the data for Account Detail for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Account+Detail+for+commercial+view
+2019-11-13T16:22:56.4331013+05:30:#8: Check weather the Account Details name is same as AccountName or not  for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+weather+the+Account+Details+name+is+same+as+AccountName+or+not++for+commercial+view
+2019-11-13T16:22:56.4331013+05:30:#9: Check Formulary for commercial view - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+Formulary+for+commercial+view
+2019-11-13T16:22:56.4331013+05:30:#10: Check the Coverage Policy items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Coverage+Policy+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#11: Check the pharmacy Services items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+pharmacy+Services+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#12: Check the Plan Products items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Plan+Products+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#13: Check the Specialty Providers items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Specialty+Providers+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#14: Check the (Member Of) of items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+(Member+Of)+of+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#15: Check the Member items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Member+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#16: Check the Address items for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Address+items+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#17: Check the Account Plan for Commercial View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Account+Plan+for+Commercial+View
+2019-11-13T16:22:56.4331013+05:30:#18: Check the View Hierarchy button for All View - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+View+Hierarchy+button+for+All+View
+2019-11-13T16:22:56.4331013+05:30:#19: checking the data for Employer channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Employer+channel
+2019-11-13T16:22:56.4331013+05:30:#20: checking the data for PBM channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+PBM+channel
+2019-11-13T16:22:56.4331013+05:30:#21: checking the data for Specialty Provider channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Specialty+Provider+channel
+2019-11-13T16:22:56.4331013+05:30:#22: checking the data for State Medicaid channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+State+Medicaid+channel
+2019-11-13T16:22:56.4331013+05:30:#23: checking the data for Tricare channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Tricare+channel
+2019-11-13T16:22:56.4331013+05:30:#24: checking the data for VA channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+VA+channel
+2019-11-13T16:22:56.4331013+05:30:#25: checking the data for Medicare channel - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Medicare+channel
+2019-11-13T16:22:56.4331013+05:30:#26: checking the data for My Accounts - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+My+Accounts
+2019-11-13T16:22:56.4331013+05:30:#27: checking the data for Parent Accounts - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:checking+the+data+for+Parent+Accounts
+2019-11-13T16:22:56.4331013+05:30:#28: Check the data for Employer view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Employer+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#29: Check the data for Medicare view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Medicare+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#30: Check the data for Parent Accounts view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Parent+Accounts+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#31: Check the data for My Accounts view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+My+Accounts+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#32: Check the data for PBM view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+PBM+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#33: Check the data for Specialty view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Specialty+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#34: Check the data for State Medicaid view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+State+Medicaid+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#35: Check the data for Tricare view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+Tricare+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#36: Check the data for VA view in all the items - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+data+for+VA+view+in+all+the+items
+2019-11-13T16:22:56.4331013+05:30:#37: Check the buttons in My Accounts screen - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+buttons+in+My+Accounts+screen
+2019-11-13T16:22:56.4331013+05:30:#38: Check the Hover of elements in My Accounts Page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Hover+of+elements+in+My+Accounts+Page
+2019-11-13T16:22:56.4331013+05:30:#39: Check the Account Plan of elements in My Accounts Page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Check+the+Account+Plan+of+elements+in+My+Accounts+Page
+2019-11-13T16:22:56.4331013+05:30:End: Test Suite Dump
+2019-11-13T16:22:56.4550880+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:22:56.4580861+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-11-13T16:22:56.4580861+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-11-13T16:22:56.4620837+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:22:56.4620837+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:22:56.4620837+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:22:56.4620837+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-11-13T16:22:56.4630834+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-11-13T16:22:56.4640825+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:22:56.4660817+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-11-13T16:22:56.4680805+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-13T16:22:56.4690794+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-11-13T16:22:56.4700799+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-11-13T16:22:56.6129922+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-11-13T16:22:56.7529080+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-11-13T16:22:56.7589067+05:30:Thread#0:T:-> Using default config
+2019-11-13T16:22:56.8158714+05:30:Thread#0:B:Given user opens browser
+2019-11-13T16:23:08.5676924+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (11.7s)
+2019-11-13T16:23:08.5696899+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-11-13T16:23:14.2246170+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (5.7s)
+2019-11-13T16:23:14.2246170+05:30:Thread#0:B:And user is on home page
+2019-11-13T16:23:26.1799001+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (12.0s)
+2019-11-13T16:23:26.1808996+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-11-13T16:23:40.8260496+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckIfCallIsAssociatedWithTheUserOrNot() (14.6s)
+2019-11-13T16:23:40.8260496+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-11-13T16:23:43.7452870+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenUserClicksOnMyAccounts() (2.9s)
+2019-11-13T16:23:43.7452870+05:30:Thread#0:B:And verifies the Title of the Page
+2019-11-13T16:23:43.8262380+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenVerifiesTheTitleOfThePage() (0.1s)
+2019-11-13T16:23:43.8502240+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:23:43.8512227+05:30:Thread#:Scheduler: testitem #5 from normal test queue 
+2019-11-13T16:23:43.8512227+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-11-13T16:23:43.8512227+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:23:43.8512227+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:23:43.8512227+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:23:43.8512227+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-11-13T16:23:43.8512227+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-11-13T16:23:43.8512227+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:23:43.9081883+05:30:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 47.2941967 seconds
+2019-11-13T16:23:43.9101871+05:30:Thread#0: Test #5/0 is started on thread #0
+2019-11-13T16:23:43.9101871+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:23:43.9111869+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:23:43.9111869+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-11-13T16:23:44.2709694+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheViewDropDownValuesAgainstRequirement() (0.4s)
+2019-11-13T16:23:44.2709694+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:23:44.2709694+05:30:Thread#:Scheduler: testitem #6 from normal test queue 
+2019-11-13T16:23:44.2709694+05:30:Thread#0:Scheduler: considering testitem #6 for thread 0
+2019-11-13T16:23:44.2709694+05:30:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:23:44.2709694+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:23:44.2709694+05:30:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:23:44.2709694+05:30:Thread#0:Scheduler: using testitem #6 for thread 0
+2019-11-13T16:23:44.2709694+05:30:Thread#0:Scheduler: Test #6 is scheduled for thread
+2019-11-13T16:23:44.2709694+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:23:44.2709694+05:30:Thread#0: Test #5/0 is finished on thread #0 as Succeeded within 0.3607823 seconds
+2019-11-13T16:23:44.2709694+05:30:Thread#0: Test #6/0 is started on thread #0
+2019-11-13T16:23:44.2719691+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:23:44.2719691+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:23:44.2729687+05:30:Thread#0:B:When view selected is commercial
+2019-11-13T16:23:44.3169426+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsCommercial() (0.0s)
+2019-11-13T16:23:44.3169426+05:30:Thread#0:B:And click on one commercial plan
+2019-11-13T16:24:05.6808393+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOneCommercialPlan() (21.4s)
+2019-11-13T16:24:05.6808393+05:30:Thread#0:B:Then Check the Header
+2019-11-13T16:24:05.7388040+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeader() (0.1s)
+2019-11-13T16:24:05.7388040+05:30:Thread#0:B:And check the selected items in the particular Account
+2019-11-13T16:24:06.1805376+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccount() (0.4s)
+2019-11-13T16:24:06.1805376+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.1805376+05:30:Thread#:Scheduler: testitem #7 from normal test queue 
+2019-11-13T16:24:06.1805376+05:30:Thread#0:Scheduler: considering testitem #7 for thread 0
+2019-11-13T16:24:06.1805376+05:30:Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.1805376+05:30:Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.1805376+05:30:Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.1805376+05:30:Thread#0:Scheduler: using testitem #7 for thread 0
+2019-11-13T16:24:06.1805376+05:30:Thread#0:Scheduler: Test #7 is scheduled for thread
+2019-11-13T16:24:06.1805376+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.1815366+05:30:Thread#0: Test #6/0 is finished on thread #0 as Succeeded within 21.9105672 seconds
+2019-11-13T16:24:06.1815366+05:30:Thread#0: Test #7/0 is started on thread #0
+2019-11-13T16:24:06.1815366+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.1815366+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.1815366+05:30:Thread#0:B:Then check the items in Account Detail
+2019-11-13T16:24:06.3474371+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInAccountDetail() (0.2s)
+2019-11-13T16:24:06.3474371+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.3474371+05:30:Thread#:Scheduler: testitem #8 from normal test queue 
+2019-11-13T16:24:06.3474371+05:30:Thread#0:Scheduler: considering testitem #8 for thread 0
+2019-11-13T16:24:06.3474371+05:30:Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.3474371+05:30:Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.3474371+05:30:Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.3474371+05:30:Thread#0:Scheduler: using testitem #8 for thread 0
+2019-11-13T16:24:06.3474371+05:30:Thread#0:Scheduler: Test #8 is scheduled for thread
+2019-11-13T16:24:06.3474371+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.3474371+05:30:Thread#0: Test #7/0 is finished on thread #0 as Succeeded within 0.1659005 seconds
+2019-11-13T16:24:06.3474371+05:30:Thread#0: Test #8/0 is started on thread #0
+2019-11-13T16:24:06.3484356+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.3484356+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.3484356+05:30:Thread#0:B:Then compare the accountname with the account Details
+2019-11-13T16:24:06.3914097+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCompareTheAccountnameWithTheAccountDetails() (0.0s)
+2019-11-13T16:24:06.3914097+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.3914097+05:30:Thread#:Scheduler: testitem #9 from normal test queue 
+2019-11-13T16:24:06.3914097+05:30:Thread#0:Scheduler: considering testitem #9 for thread 0
+2019-11-13T16:24:06.3914097+05:30:Thread#0:TestItem#9:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.3914097+05:30:Thread#0:TestItem#9:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.3914097+05:30:Thread#0:TestItem#9:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.3914097+05:30:Thread#0:Scheduler: using testitem #9 for thread 0
+2019-11-13T16:24:06.3914097+05:30:Thread#0:Scheduler: Test #9 is scheduled for thread
+2019-11-13T16:24:06.3914097+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.3924098+05:30:Thread#0: Test #8/0 is finished on thread #0 as Succeeded within 0.0449727 seconds
+2019-11-13T16:24:06.3924098+05:30:Thread#0: Test #9/0 is started on thread #0
+2019-11-13T16:24:06.3924098+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.3924098+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.3924098+05:30:Thread#0:B:Then check the items in Formulary
+2019-11-13T16:24:06.4593685+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInFormulary() (0.1s)
+2019-11-13T16:24:06.4593685+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.4593685+05:30:Thread#:Scheduler: testitem #10 from normal test queue 
+2019-11-13T16:24:06.4593685+05:30:Thread#0:Scheduler: considering testitem #10 for thread 0
+2019-11-13T16:24:06.4593685+05:30:Thread#0:TestItem#10:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.4593685+05:30:Thread#0:TestItem#10:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.4593685+05:30:Thread#0:TestItem#10:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.4593685+05:30:Thread#0:Scheduler: using testitem #10 for thread 0
+2019-11-13T16:24:06.4593685+05:30:Thread#0:Scheduler: Test #10 is scheduled for thread
+2019-11-13T16:24:06.4593685+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.4603683+05:30:Thread#0: Test #9/0 is finished on thread #0 as Succeeded within 0.0679585 seconds
+2019-11-13T16:24:06.4603683+05:30:Thread#0: Test #10/0 is started on thread #0
+2019-11-13T16:24:06.4603683+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.4613678+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.4613678+05:30:Thread#0:B:Then check the items in CovergePolicy
+2019-11-13T16:24:06.6352628+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInCovergePolicy() (0.2s)
+2019-11-13T16:24:06.6362625+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.6362625+05:30:Thread#:Scheduler: testitem #11 from normal test queue 
+2019-11-13T16:24:06.6362625+05:30:Thread#0:Scheduler: considering testitem #11 for thread 0
+2019-11-13T16:24:06.6362625+05:30:Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.6362625+05:30:Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.6362625+05:30:Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.6362625+05:30:Thread#0:Scheduler: using testitem #11 for thread 0
+2019-11-13T16:24:06.6362625+05:30:Thread#0:Scheduler: Test #11 is scheduled for thread
+2019-11-13T16:24:06.6362625+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.6362625+05:30:Thread#0: Test #10/0 is finished on thread #0 as Succeeded within 0.1758942 seconds
+2019-11-13T16:24:06.6362625+05:30:Thread#0: Test #11/0 is started on thread #0
+2019-11-13T16:24:06.6372612+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.6372612+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.6372612+05:30:Thread#0:B:Then check the items in pharmacy Services
+2019-11-13T16:24:06.7821733+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInPharmacyServices() (0.1s)
+2019-11-13T16:24:06.7821733+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.7821733+05:30:Thread#:Scheduler: testitem #12 from normal test queue 
+2019-11-13T16:24:06.7821733+05:30:Thread#0:Scheduler: considering testitem #12 for thread 0
+2019-11-13T16:24:06.7821733+05:30:Thread#0:TestItem#12:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.7821733+05:30:Thread#0:TestItem#12:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.7821733+05:30:Thread#0:TestItem#12:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.7821733+05:30:Thread#0:Scheduler: using testitem #12 for thread 0
+2019-11-13T16:24:06.7821733+05:30:Thread#0:Scheduler: Test #12 is scheduled for thread
+2019-11-13T16:24:06.7821733+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.7821733+05:30:Thread#0: Test #11/0 is finished on thread #0 as Succeeded within 0.1459108 seconds
+2019-11-13T16:24:06.7821733+05:30:Thread#0: Test #12/0 is started on thread #0
+2019-11-13T16:24:06.7831735+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.7831735+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.7831735+05:30:Thread#0:B:Then check the items in Plan Products
+2019-11-13T16:24:06.9600665+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInPlanProducts() (0.2s)
+2019-11-13T16:24:06.9600665+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:06.9600665+05:30:Thread#:Scheduler: testitem #13 from normal test queue 
+2019-11-13T16:24:06.9600665+05:30:Thread#0:Scheduler: considering testitem #13 for thread 0
+2019-11-13T16:24:06.9600665+05:30:Thread#0:TestItem#13:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:06.9600665+05:30:Thread#0:TestItem#13:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:06.9600665+05:30:Thread#0:TestItem#13:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:06.9600665+05:30:Thread#0:Scheduler: using testitem #13 for thread 0
+2019-11-13T16:24:06.9600665+05:30:Thread#0:Scheduler: Test #13 is scheduled for thread
+2019-11-13T16:24:06.9600665+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:06.9600665+05:30:Thread#0: Test #12/0 is finished on thread #0 as Succeeded within 0.1778932 seconds
+2019-11-13T16:24:06.9600665+05:30:Thread#0: Test #13/0 is started on thread #0
+2019-11-13T16:24:06.9610657+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:06.9610657+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:06.9610657+05:30:Thread#0:B:Then check the items in Specialty Providers
+2019-11-13T16:24:07.0320230+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInSpecialtyProviders() (0.1s)
+2019-11-13T16:24:07.0320230+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:07.0320230+05:30:Thread#:Scheduler: testitem #14 from normal test queue 
+2019-11-13T16:24:07.0320230+05:30:Thread#0:Scheduler: considering testitem #14 for thread 0
+2019-11-13T16:24:07.0320230+05:30:Thread#0:TestItem#14:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:07.0320230+05:30:Thread#0:TestItem#14:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:07.0320230+05:30:Thread#0:TestItem#14:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:07.0320230+05:30:Thread#0:Scheduler: using testitem #14 for thread 0
+2019-11-13T16:24:07.0320230+05:30:Thread#0:Scheduler: Test #14 is scheduled for thread
+2019-11-13T16:24:07.0320230+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:07.0330223+05:30:Thread#0: Test #13/0 is finished on thread #0 as Succeeded within 0.0729558 seconds
+2019-11-13T16:24:07.0330223+05:30:Thread#0: Test #14/0 is started on thread #0
+2019-11-13T16:24:07.0330223+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:07.0330223+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:07.0340224+05:30:Thread#0:B:Then check the items in Member Of
+2019-11-13T16:24:07.0829936+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInMemberOf() (0.0s)
+2019-11-13T16:24:07.0829936+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:07.0829936+05:30:Thread#:Scheduler: testitem #15 from normal test queue 
+2019-11-13T16:24:07.0829936+05:30:Thread#0:Scheduler: considering testitem #15 for thread 0
+2019-11-13T16:24:07.0829936+05:30:Thread#0:TestItem#15:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:07.0829936+05:30:Thread#0:TestItem#15:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:07.0829936+05:30:Thread#0:TestItem#15:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:07.0829936+05:30:Thread#0:Scheduler: using testitem #15 for thread 0
+2019-11-13T16:24:07.0829936+05:30:Thread#0:Scheduler: Test #15 is scheduled for thread
+2019-11-13T16:24:07.0829936+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:07.0829936+05:30:Thread#0: Test #14/0 is finished on thread #0 as Succeeded within 0.0499713 seconds
+2019-11-13T16:24:07.0839916+05:30:Thread#0: Test #15/0 is started on thread #0
+2019-11-13T16:24:07.0839916+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:07.0839916+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:07.0839916+05:30:Thread#0:B:Then check the items in Member
+2019-11-13T16:24:07.1819332+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInMember() (0.1s)
+2019-11-13T16:24:07.1829326+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:07.1829326+05:30:Thread#:Scheduler: testitem #16 from normal test queue 
+2019-11-13T16:24:07.1829326+05:30:Thread#0:Scheduler: considering testitem #16 for thread 0
+2019-11-13T16:24:07.1829326+05:30:Thread#0:TestItem#16:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:07.1829326+05:30:Thread#0:TestItem#16:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:07.1829326+05:30:Thread#0:TestItem#16:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:07.1829326+05:30:Thread#0:Scheduler: using testitem #16 for thread 0
+2019-11-13T16:24:07.1829326+05:30:Thread#0:Scheduler: Test #16 is scheduled for thread
+2019-11-13T16:24:07.1829326+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:07.1829326+05:30:Thread#0: Test #15/0 is finished on thread #0 as Succeeded within 0.098941 seconds
+2019-11-13T16:24:07.1829326+05:30:Thread#0: Test #16/0 is started on thread #0
+2019-11-13T16:24:07.1829326+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:07.1839312+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:07.1839312+05:30:Thread#0:B:Then check the items in Address
+2019-11-13T16:24:07.3528295+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInAddress() (0.2s)
+2019-11-13T16:24:07.3528295+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:07.3528295+05:30:Thread#:Scheduler: testitem #17 from normal test queue 
+2019-11-13T16:24:07.3528295+05:30:Thread#0:Scheduler: considering testitem #17 for thread 0
+2019-11-13T16:24:07.3528295+05:30:Thread#0:TestItem#17:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:07.3528295+05:30:Thread#0:TestItem#17:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:07.3528295+05:30:Thread#0:TestItem#17:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:07.3528295+05:30:Thread#0:Scheduler: using testitem #17 for thread 0
+2019-11-13T16:24:07.3528295+05:30:Thread#0:Scheduler: Test #17 is scheduled for thread
+2019-11-13T16:24:07.3528295+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:07.3538286+05:30:Thread#0: Test #16/0 is finished on thread #0 as Succeeded within 0.170896 seconds
+2019-11-13T16:24:07.3538286+05:30:Thread#0: Test #17/0 is started on thread #0
+2019-11-13T16:24:07.3538286+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:07.3548281+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:07.3548281+05:30:Thread#0:B:Then check the items in Account Plan
+2019-11-13T16:24:07.5377178+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsInAccountPlan() (0.2s)
+2019-11-13T16:24:07.5377178+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:24:07.5377178+05:30:Thread#:Scheduler: testitem #18 from normal test queue 
+2019-11-13T16:24:07.5377178+05:30:Thread#0:Scheduler: considering testitem #18 for thread 0
+2019-11-13T16:24:07.5377178+05:30:Thread#0:TestItem#18:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:24:07.5377178+05:30:Thread#0:TestItem#18:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:24:07.5377178+05:30:Thread#0:TestItem#18:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:24:07.5377178+05:30:Thread#0:Scheduler: using testitem #18 for thread 0
+2019-11-13T16:24:07.5377178+05:30:Thread#0:Scheduler: Test #18 is scheduled for thread
+2019-11-13T16:24:07.5377178+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:24:07.5387172+05:30:Thread#0: Test #17/0 is finished on thread #0 as Succeeded within 0.1848886 seconds
+2019-11-13T16:24:07.5387172+05:30:Thread#0: Test #18/0 is started on thread #0
+2019-11-13T16:24:07.5387172+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:24:07.5397164+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:24:07.5397164+05:30:Thread#0:B:Then check the View Hierarchy button
+2019-11-13T16:33:42.0613144+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheViewHierarchyButton() (574.5s)
+2019-11-13T16:33:42.0623133+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:33:42.0623133+05:30:Thread#:Scheduler: testitem #19 from normal test queue 
+2019-11-13T16:33:42.0623133+05:30:Thread#0:Scheduler: considering testitem #19 for thread 0
+2019-11-13T16:33:42.0623133+05:30:Thread#0:TestItem#19:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:33:42.0623133+05:30:Thread#0:TestItem#19:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:33:42.0623133+05:30:Thread#0:TestItem#19:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:33:42.0623133+05:30:Thread#0:Scheduler: using testitem #19 for thread 0
+2019-11-13T16:33:42.0623133+05:30:Thread#0:Scheduler: Test #19 is scheduled for thread
+2019-11-13T16:33:42.0623133+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:33:42.0623133+05:30:Thread#0: Test #18/0 is finished on thread #0 as Succeeded within 574.5235961 seconds
+2019-11-13T16:33:42.0623133+05:30:Thread#0: Test #19/0 is started on thread #0
+2019-11-13T16:33:42.0643127+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:33:42.0643127+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:33:42.0643127+05:30:Thread#0:B:When view selected is Employer
+2019-11-13T16:33:42.1612544+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsEmployer() (0.1s)
+2019-11-13T16:33:42.1612544+05:30:Thread#0:B:And click on one Employer plan
+2019-11-13T16:33:50.9772523+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOneEmployerPlan() (8.8s)
+2019-11-13T16:33:50.9782516+05:30:Thread#0:B:Then Check the Header of Employer Plan
+2019-11-13T16:33:53.5626894+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfEmployerPlan() (2.6s)
+2019-11-13T16:33:53.5626894+05:30:Thread#0:B:And check the selected items in the particular Account of Employer Plan
+2019-11-13T16:33:53.8455183+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfEmployerPlan() (0.3s)
+2019-11-13T16:33:53.8455183+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:33:53.8455183+05:30:Thread#:Scheduler: testitem #20 from normal test queue 
+2019-11-13T16:33:53.8455183+05:30:Thread#0:Scheduler: considering testitem #20 for thread 0
+2019-11-13T16:33:53.8455183+05:30:Thread#0:TestItem#20:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:33:53.8455183+05:30:Thread#0:TestItem#20:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:33:53.8455183+05:30:Thread#0:TestItem#20:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:33:53.8455183+05:30:Thread#0:Scheduler: using testitem #20 for thread 0
+2019-11-13T16:33:53.8455183+05:30:Thread#0:Scheduler: Test #20 is scheduled for thread
+2019-11-13T16:33:53.8455183+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:33:53.8465174+05:30:Thread#0: Test #19/0 is finished on thread #0 as Succeeded within 11.783205 seconds
+2019-11-13T16:33:53.8465174+05:30:Thread#0: Test #20/0 is started on thread #0
+2019-11-13T16:33:53.8465174+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:33:53.8465174+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:33:53.8465174+05:30:Thread#0:B:When view selected is PBM
+2019-11-13T16:33:56.9504855+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsPBM() (3.1s)
+2019-11-13T16:33:56.9514857+05:30:Thread#0:B:And click on one PBM plan
+2019-11-13T16:34:04.0889401+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOnePBMPlan() (7.1s)
+2019-11-13T16:34:04.0889401+05:30:Thread#0:B:Then Check the Header of PBM Plan
+2019-11-13T16:34:07.2936786+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfPBMPlan() (3.2s)
+2019-11-13T16:34:07.2936786+05:30:Thread#0:B:And check the selected items in the particular Account of PBM Plan
+2019-11-13T16:34:07.6144837+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfPBMPlan() (0.3s)
+2019-11-13T16:34:07.6144837+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:34:07.6144837+05:30:Thread#:Scheduler: testitem #21 from normal test queue 
+2019-11-13T16:34:07.6144837+05:30:Thread#0:Scheduler: considering testitem #21 for thread 0
+2019-11-13T16:34:07.6154834+05:30:Thread#0:TestItem#21:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:34:07.6154834+05:30:Thread#0:TestItem#21:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:34:07.6154834+05:30:Thread#0:TestItem#21:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:34:07.6154834+05:30:Thread#0:Scheduler: using testitem #21 for thread 0
+2019-11-13T16:34:07.6154834+05:30:Thread#0:Scheduler: Test #21 is scheduled for thread
+2019-11-13T16:34:07.6154834+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:34:07.6154834+05:30:Thread#0: Test #20/0 is finished on thread #0 as Succeeded within 13.768966 seconds
+2019-11-13T16:34:07.6154834+05:30:Thread#0: Test #21/0 is started on thread #0
+2019-11-13T16:34:07.6164828+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:34:07.6164828+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:34:07.6164828+05:30:Thread#0:B:When view selected is Specialty Provider
+2019-11-13T16:34:10.6446511+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsSpecialtyProvider() (3.0s)
+2019-11-13T16:34:10.6456509+05:30:Thread#0:B:And click on one Specialty Provider plan
+2019-11-13T16:34:24.8065377+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOneSpecialtyProviderPlan() (14.2s)
+2019-11-13T16:34:24.8075357+05:30:Thread#0:B:Then Check the Header of Specialty Provider Plan
+2019-11-13T16:34:25.7419703+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfSpecialtyProviderPlan() (0.9s)
+2019-11-13T16:34:25.7419703+05:30:Thread#0:B:And check the selected items in the particular Account of Specialty Provider Plan
+2019-11-13T16:34:25.8489055+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfSpecialtyProviderPlan() (0.1s)
+2019-11-13T16:34:25.8489055+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:34:25.8489055+05:30:Thread#:Scheduler: testitem #22 from normal test queue 
+2019-11-13T16:34:25.8489055+05:30:Thread#0:Scheduler: considering testitem #22 for thread 0
+2019-11-13T16:34:25.8489055+05:30:Thread#0:TestItem#22:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:34:25.8489055+05:30:Thread#0:TestItem#22:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:34:25.8489055+05:30:Thread#0:TestItem#22:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:34:25.8489055+05:30:Thread#0:Scheduler: using testitem #22 for thread 0
+2019-11-13T16:34:25.8489055+05:30:Thread#0:Scheduler: Test #22 is scheduled for thread
+2019-11-13T16:34:25.8489055+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:34:25.8489055+05:30:Thread#0: Test #21/0 is finished on thread #0 as Succeeded within 18.2334221 seconds
+2019-11-13T16:34:25.8489055+05:30:Thread#0: Test #22/0 is started on thread #0
+2019-11-13T16:34:25.8499043+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:34:25.8499043+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:34:25.8499043+05:30:Thread#0:B:When view selected is State Medicaid
+2019-11-13T16:34:29.0169900+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsStateMedicaid() (3.2s)
+2019-11-13T16:34:29.0169900+05:30:Thread#0:B:And click on one State Medicaid plan
+2019-11-13T16:34:38.7301172+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOneStateMedicaidPlan() (9.7s)
+2019-11-13T16:34:38.7301172+05:30:Thread#0:B:Then Check the Header of State Medicaid Plan
+2019-11-13T16:34:38.7740910+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfStateMedicaidPlan() (0.0s)
+2019-11-13T16:34:38.7750901+05:30:Thread#0:B:And check the selected items in the particular Account of State Medicaid Plan
+2019-11-13T16:34:39.2038304+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfStateMedicaidPlan() (0.4s)
+2019-11-13T16:34:39.2038304+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:34:39.2038304+05:30:Thread#:Scheduler: testitem #23 from normal test queue 
+2019-11-13T16:34:39.2038304+05:30:Thread#0:Scheduler: considering testitem #23 for thread 0
+2019-11-13T16:34:39.2038304+05:30:Thread#0:TestItem#23:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:34:39.2038304+05:30:Thread#0:TestItem#23:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:34:39.2038304+05:30:Thread#0:TestItem#23:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:34:39.2038304+05:30:Thread#0:Scheduler: using testitem #23 for thread 0
+2019-11-13T16:34:39.2038304+05:30:Thread#0:Scheduler: Test #23 is scheduled for thread
+2019-11-13T16:34:39.2038304+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:34:39.2048297+05:30:Thread#0: Test #22/0 is finished on thread #0 as Succeeded within 13.3559242 seconds
+2019-11-13T16:34:39.2048297+05:30:Thread#0: Test #23/0 is started on thread #0
+2019-11-13T16:34:39.2048297+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:34:39.2048297+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:34:39.2058293+05:30:Thread#0:B:When view selected is Tricare
+2019-11-13T16:34:42.0476534+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsTricare() (2.8s)
+2019-11-13T16:34:42.0476534+05:30:Thread#0:B:And click on one Tricare plan
+2019-11-13T16:34:49.1885487+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOneTricarePlan() (7.1s)
+2019-11-13T16:34:49.1885487+05:30:Thread#0:B:Then Check the Header of Tricare Plan
+2019-11-13T16:34:51.7759879+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfTricarePlan() (2.6s)
+2019-11-13T16:34:51.7759879+05:30:Thread#0:B:And check the selected items in the particular Account of Tricare Plan
+2019-11-13T16:34:52.1207747+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfTricarePlan() (0.3s)
+2019-11-13T16:34:52.1207747+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:34:52.1207747+05:30:Thread#:Scheduler: testitem #24 from normal test queue 
+2019-11-13T16:34:52.1207747+05:30:Thread#0:Scheduler: considering testitem #24 for thread 0
+2019-11-13T16:34:52.1207747+05:30:Thread#0:TestItem#24:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:34:52.1207747+05:30:Thread#0:TestItem#24:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:34:52.1207747+05:30:Thread#0:TestItem#24:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:34:52.1207747+05:30:Thread#0:Scheduler: using testitem #24 for thread 0
+2019-11-13T16:34:52.1207747+05:30:Thread#0:Scheduler: Test #24 is scheduled for thread
+2019-11-13T16:34:52.1207747+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:34:52.1217737+05:30:Thread#0: Test #23/0 is finished on thread #0 as Succeeded within 12.916944 seconds
+2019-11-13T16:34:52.1217737+05:30:Thread#0: Test #24/0 is started on thread #0
+2019-11-13T16:34:52.1227729+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:34:52.1227729+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:34:52.1227729+05:30:Thread#0:B:When view selected is VA
+2019-11-13T16:34:54.8691133+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsVA() (2.7s)
+2019-11-13T16:34:54.8701122+05:30:Thread#0:B:And click on one VA plan
+2019-11-13T16:35:04.3597457+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnOneVAPlan() (9.5s)
+2019-11-13T16:35:04.3597457+05:30:Thread#0:B:Then Check the Header of VA Plan
+2019-11-13T16:35:04.3987214+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfVAPlan() (0.0s)
+2019-11-13T16:35:04.3987214+05:30:Thread#0:B:And check the selected items in the particular Account of VA Plan
+2019-11-13T16:35:04.8194681+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfVAPlan() (0.4s)
+2019-11-13T16:35:04.8194681+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:35:04.8194681+05:30:Thread#:Scheduler: testitem #25 from normal test queue 
+2019-11-13T16:35:04.8194681+05:30:Thread#0:Scheduler: considering testitem #25 for thread 0
+2019-11-13T16:35:04.8194681+05:30:Thread#0:TestItem#25:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:35:04.8194681+05:30:Thread#0:TestItem#25:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:35:04.8194681+05:30:Thread#0:TestItem#25:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:35:04.8194681+05:30:Thread#0:Scheduler: using testitem #25 for thread 0
+2019-11-13T16:35:04.8194681+05:30:Thread#0:Scheduler: Test #25 is scheduled for thread
+2019-11-13T16:35:04.8204672+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:35:04.8204672+05:30:Thread#0: Test #24/0 is finished on thread #0 as Succeeded within 12.6986935 seconds
+2019-11-13T16:35:04.8204672+05:30:Thread#0: Test #25/0 is started on thread #0
+2019-11-13T16:35:04.8214664+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:35:04.8214664+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:35:04.8214664+05:30:Thread#0:B:When view selected is Medicare
+2019-11-13T16:35:07.6347657+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsMedicare() (2.8s)
+2019-11-13T16:35:07.6347657+05:30:Thread#0:B:And click on Medicare plan
+2019-11-13T16:35:14.7611678+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnMedicarePlan() (7.1s)
+2019-11-13T16:35:14.7611678+05:30:Thread#0:B:Then Check the Header of Medicare Plan
+2019-11-13T16:35:17.5764650+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfMedicarePlan() (2.8s)
+2019-11-13T16:35:17.5774643+05:30:Thread#0:B:And check the selected items in the particular Account of Medicare Plan
+2019-11-13T16:35:17.9302523+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfMedicarePlan() (0.4s)
+2019-11-13T16:35:17.9302523+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:35:17.9302523+05:30:Thread#:Scheduler: testitem #26 from normal test queue 
+2019-11-13T16:35:17.9302523+05:30:Thread#0:Scheduler: considering testitem #26 for thread 0
+2019-11-13T16:35:17.9302523+05:30:Thread#0:TestItem#26:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:35:17.9302523+05:30:Thread#0:TestItem#26:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:35:17.9302523+05:30:Thread#0:TestItem#26:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:35:17.9302523+05:30:Thread#0:Scheduler: using testitem #26 for thread 0
+2019-11-13T16:35:17.9302523+05:30:Thread#0:Scheduler: Test #26 is scheduled for thread
+2019-11-13T16:35:17.9302523+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:35:17.9312507+05:30:Thread#0: Test #25/0 is finished on thread #0 as Succeeded within 13.1107835 seconds
+2019-11-13T16:35:17.9312507+05:30:Thread#0: Test #26/0 is started on thread #0
+2019-11-13T16:35:17.9322500+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:35:17.9322500+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:35:17.9322500+05:30:Thread#0:B:When view selected is My Accounts
+2019-11-13T16:35:20.6815881+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsMyAccounts() (2.7s)
+2019-11-13T16:35:20.6815881+05:30:Thread#0:B:And click on My Accounts plan
+2019-11-13T16:35:28.8100183+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnMyAccountsPlan() (8.1s)
+2019-11-13T16:35:28.8110193+05:30:Thread#0:B:Then Check the Header of My Accounts Plan
+2019-11-13T16:35:31.6792818+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfMyAccountsPlan() (2.9s)
+2019-11-13T16:35:31.6792818+05:30:Thread#0:B:And check the selected items in the particular Account of My Accounts Plan
+2019-11-13T16:35:32.0110819+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfMyAccountsPlan() (0.3s)
+2019-11-13T16:35:32.0110819+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:35:32.0110819+05:30:Thread#:Scheduler: testitem #27 from normal test queue 
+2019-11-13T16:35:32.0110819+05:30:Thread#0:Scheduler: considering testitem #27 for thread 0
+2019-11-13T16:35:32.0110819+05:30:Thread#0:TestItem#27:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:35:32.0110819+05:30:Thread#0:TestItem#27:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:35:32.0110819+05:30:Thread#0:TestItem#27:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:35:32.0110819+05:30:Thread#0:Scheduler: using testitem #27 for thread 0
+2019-11-13T16:35:32.0110819+05:30:Thread#0:Scheduler: Test #27 is scheduled for thread
+2019-11-13T16:35:32.0110819+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:35:32.0120805+05:30:Thread#0: Test #26/0 is finished on thread #0 as Succeeded within 14.0808298 seconds
+2019-11-13T16:35:32.0120805+05:30:Thread#0: Test #27/0 is started on thread #0
+2019-11-13T16:35:32.0130801+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:35:32.0130801+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:35:32.0130801+05:30:Thread#0:B:When view selected is Parent Accounts
+2019-11-13T16:35:36.8826213+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenViewSelectedIsParentAccounts() (4.9s)
+2019-11-13T16:35:36.8826213+05:30:Thread#0:B:And click on Parent Accounts plan
+2019-11-13T16:35:51.0504350+05:30:Thread#0:T:done: AccountsPageStepDefination.WhenClickOnParentAccountsPlan() (14.2s)
+2019-11-13T16:35:51.0504350+05:30:Thread#0:B:Then Check the Header of Parent Accounts Plan
+2019-11-13T16:35:53.9942209+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheHeaderOfParentAccountsPlan() (2.9s)
+2019-11-13T16:35:53.9942209+05:30:Thread#0:B:And check the selected items in the particular Account of Parent Accounts Plan
+2019-11-13T16:35:54.4409517+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheSelectedItemsInTheParticularAccountOfParentAccountsPlan() (0.4s)
+2019-11-13T16:35:54.4409517+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:35:54.4409517+05:30:Thread#:Scheduler: testitem #28 from normal test queue 
+2019-11-13T16:35:54.4409517+05:30:Thread#0:Scheduler: considering testitem #28 for thread 0
+2019-11-13T16:35:54.4409517+05:30:Thread#0:TestItem#28:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:35:54.4409517+05:30:Thread#0:TestItem#28:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:35:54.4409517+05:30:Thread#0:TestItem#28:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:35:54.4409517+05:30:Thread#0:Scheduler: using testitem #28 for thread 0
+2019-11-13T16:35:54.4409517+05:30:Thread#0:Scheduler: Test #28 is scheduled for thread
+2019-11-13T16:35:54.4409517+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:35:54.4419510+05:30:Thread#0: Test #27/0 is finished on thread #0 as Succeeded within 22.4298705 seconds
+2019-11-13T16:35:54.4419510+05:30:Thread#0: Test #28/0 is started on thread #0
+2019-11-13T16:35:54.4419510+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:35:54.4429493+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:35:54.4429493+05:30:Thread#0:B:Then check the items for Employer View
+2019-11-13T16:36:16.4489849+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForEmployerView() (22.0s)
+2019-11-13T16:36:16.4489849+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:36:16.4489849+05:30:Thread#:Scheduler: testitem #29 from normal test queue 
+2019-11-13T16:36:16.4489849+05:30:Thread#0:Scheduler: considering testitem #29 for thread 0
+2019-11-13T16:36:16.4489849+05:30:Thread#0:TestItem#29:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:36:16.4489849+05:30:Thread#0:TestItem#29:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:36:16.4489849+05:30:Thread#0:TestItem#29:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:36:16.4489849+05:30:Thread#0:Scheduler: using testitem #29 for thread 0
+2019-11-13T16:36:16.4489849+05:30:Thread#0:Scheduler: Test #29 is scheduled for thread
+2019-11-13T16:36:16.4489849+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:36:16.4489849+05:30:Thread#0: Test #28/0 is finished on thread #0 as Succeeded within 22.0070339 seconds
+2019-11-13T16:36:16.4489849+05:30:Thread#0: Test #29/0 is started on thread #0
+2019-11-13T16:36:16.4499841+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:36:16.4499841+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:36:16.4499841+05:30:Thread#0:B:Then Check whether the Account belong medicare view or not
+2019-11-13T16:36:29.3271249+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongMedicareViewOrNot() (12.9s)
+2019-11-13T16:36:29.3271249+05:30:Thread#0:B:Then check the items for Medicare View
+2019-11-13T16:36:30.3415113+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForMedicareView() (1.0s)
+2019-11-13T16:36:30.3425103+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:36:30.3425103+05:30:Thread#:Scheduler: testitem #30 from normal test queue 
+2019-11-13T16:36:30.3425103+05:30:Thread#0:Scheduler: considering testitem #30 for thread 0
+2019-11-13T16:36:30.3425103+05:30:Thread#0:TestItem#30:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:36:30.3425103+05:30:Thread#0:TestItem#30:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:36:30.3425103+05:30:Thread#0:TestItem#30:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:36:30.3425103+05:30:Thread#0:Scheduler: using testitem #30 for thread 0
+2019-11-13T16:36:30.3425103+05:30:Thread#0:Scheduler: Test #30 is scheduled for thread
+2019-11-13T16:36:30.3425103+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:36:30.3425103+05:30:Thread#0: Test #29/0 is finished on thread #0 as Succeeded within 13.8935254 seconds
+2019-11-13T16:36:30.3425103+05:30:Thread#0: Test #30/0 is started on thread #0
+2019-11-13T16:36:30.3435095+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:36:30.3435095+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:36:30.3435095+05:30:Thread#0:B:Then Check whether the Account belong Parent Accounts view or not
+2019-11-13T16:36:44.3968067+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongParentAccountsViewOrNot() (14.1s)
+2019-11-13T16:36:44.3968067+05:30:Thread#0:B:Then check the items for Parent Accounts View
+2019-11-13T16:36:45.4521691+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForParentAccountsView() (1.1s)
+2019-11-13T16:36:45.4531696+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:36:45.4531696+05:30:Thread#:Scheduler: testitem #31 from normal test queue 
+2019-11-13T16:36:45.4531696+05:30:Thread#0:Scheduler: considering testitem #31 for thread 0
+2019-11-13T16:36:45.4531696+05:30:Thread#0:TestItem#31:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:36:45.4531696+05:30:Thread#0:TestItem#31:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:36:45.4531696+05:30:Thread#0:TestItem#31:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:36:45.4531696+05:30:Thread#0:Scheduler: using testitem #31 for thread 0
+2019-11-13T16:36:45.4531696+05:30:Thread#0:Scheduler: Test #31 is scheduled for thread
+2019-11-13T16:36:45.4531696+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:36:45.4531696+05:30:Thread#0: Test #30/0 is finished on thread #0 as Succeeded within 15.1106593 seconds
+2019-11-13T16:36:45.4541681+05:30:Thread#0: Test #31/0 is started on thread #0
+2019-11-13T16:36:45.4541681+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:36:45.4541681+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:36:45.4541681+05:30:Thread#0:B:Then Check whether the Account belong My Accounts view or not
+2019-11-13T16:36:59.0959187+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongMyAccountsViewOrNot() (13.6s)
+2019-11-13T16:36:59.0959187+05:30:Thread#0:B:Then check the items for My Accounts View
+2019-11-13T16:37:00.3071866+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForMyAccountsView() (1.2s)
+2019-11-13T16:37:00.3071866+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:37:00.3071866+05:30:Thread#:Scheduler: testitem #32 from normal test queue 
+2019-11-13T16:37:00.3071866+05:30:Thread#0:Scheduler: considering testitem #32 for thread 0
+2019-11-13T16:37:00.3071866+05:30:Thread#0:TestItem#32:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:37:00.3071866+05:30:Thread#0:TestItem#32:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:37:00.3071866+05:30:Thread#0:TestItem#32:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:37:00.3071866+05:30:Thread#0:Scheduler: using testitem #32 for thread 0
+2019-11-13T16:37:00.3071866+05:30:Thread#0:Scheduler: Test #32 is scheduled for thread
+2019-11-13T16:37:00.3071866+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:37:00.3081861+05:30:Thread#0: Test #31/0 is finished on thread #0 as Succeeded within 14.854018 seconds
+2019-11-13T16:37:00.3081861+05:30:Thread#0: Test #32/0 is started on thread #0
+2019-11-13T16:37:00.3081861+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:37:00.3081861+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:37:00.3081861+05:30:Thread#0:B:Then Check whether the Account belong PBM view or not
+2019-11-13T16:37:15.9940038+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongPBMViewOrNot() (15.7s)
+2019-11-13T16:37:15.9940038+05:30:Thread#0:B:Then check the items for PBM View
+2019-11-13T16:37:16.6915817+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForPBMView() (0.7s)
+2019-11-13T16:37:16.6915817+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:37:16.6925806+05:30:Thread#:Scheduler: testitem #33 from normal test queue 
+2019-11-13T16:37:16.6925806+05:30:Thread#0:Scheduler: considering testitem #33 for thread 0
+2019-11-13T16:37:16.6925806+05:30:Thread#0:TestItem#33:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:37:16.6925806+05:30:Thread#0:TestItem#33:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:37:16.6925806+05:30:Thread#0:TestItem#33:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:37:16.6925806+05:30:Thread#0:Scheduler: using testitem #33 for thread 0
+2019-11-13T16:37:16.6925806+05:30:Thread#0:Scheduler: Test #33 is scheduled for thread
+2019-11-13T16:37:16.6925806+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:37:16.6925806+05:30:Thread#0: Test #32/0 is finished on thread #0 as Succeeded within 16.3843945 seconds
+2019-11-13T16:37:16.6925806+05:30:Thread#0: Test #33/0 is started on thread #0
+2019-11-13T16:37:16.6935798+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:37:16.6935798+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:37:16.6935798+05:30:Thread#0:B:Then Check whether the Account belong Specialty view or not
+2019-11-13T16:37:27.5076611+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongSpecialtyViewOrNot() (10.8s)
+2019-11-13T16:37:27.5076611+05:30:Thread#0:B:Then check the items for Specialty View
+2019-11-13T16:37:28.8598435+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForSpecialtyView() (1.4s)
+2019-11-13T16:37:28.8598435+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:37:28.8598435+05:30:Thread#:Scheduler: testitem #34 from normal test queue 
+2019-11-13T16:37:28.8598435+05:30:Thread#0:Scheduler: considering testitem #34 for thread 0
+2019-11-13T16:37:28.8598435+05:30:Thread#0:TestItem#34:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:37:28.8598435+05:30:Thread#0:TestItem#34:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:37:28.8598435+05:30:Thread#0:TestItem#34:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:37:28.8598435+05:30:Thread#0:Scheduler: using testitem #34 for thread 0
+2019-11-13T16:37:28.8598435+05:30:Thread#0:Scheduler: Test #34 is scheduled for thread
+2019-11-13T16:37:28.8598435+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:37:28.8598435+05:30:Thread#0: Test #33/0 is finished on thread #0 as Succeeded within 12.1672629 seconds
+2019-11-13T16:37:28.8598435+05:30:Thread#0: Test #34/0 is started on thread #0
+2019-11-13T16:37:28.8608431+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:37:28.8608431+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:37:28.8608431+05:30:Thread#0:B:Then Check whether the Account belong State Medicaid view or not
+2019-11-13T16:37:41.4924284+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongStateMedicaidViewOrNot() (12.6s)
+2019-11-13T16:37:41.4924284+05:30:Thread#0:B:Then check the items for State Medicaid View
+2019-11-13T16:37:42.3469096+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForStateMedicaidView() (0.9s)
+2019-11-13T16:37:42.3469096+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:37:42.3469096+05:30:Thread#:Scheduler: testitem #35 from normal test queue 
+2019-11-13T16:37:42.3469096+05:30:Thread#0:Scheduler: considering testitem #35 for thread 0
+2019-11-13T16:37:42.3469096+05:30:Thread#0:TestItem#35:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:37:42.3469096+05:30:Thread#0:TestItem#35:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:37:42.3469096+05:30:Thread#0:TestItem#35:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:37:42.3469096+05:30:Thread#0:Scheduler: using testitem #35 for thread 0
+2019-11-13T16:37:42.3469096+05:30:Thread#0:Scheduler: Test #35 is scheduled for thread
+2019-11-13T16:37:42.3469096+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:37:42.3479091+05:30:Thread#0: Test #34/0 is finished on thread #0 as Succeeded within 13.4870661 seconds
+2019-11-13T16:37:42.3479091+05:30:Thread#0: Test #35/0 is started on thread #0
+2019-11-13T16:37:42.3479091+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:37:42.3479091+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:37:42.3479091+05:30:Thread#0:B:Then Check whether the Account belong Tricare view or not
+2019-11-13T16:37:54.7924882+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongTricareViewOrNot() (12.4s)
+2019-11-13T16:37:54.7934874+05:30:Thread#0:B:Then check the items for Tricare View
+2019-11-13T16:37:55.5190477+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheItemsForTricareView() (0.7s)
+2019-11-13T16:37:55.5190477+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:37:55.5190477+05:30:Thread#:Scheduler: testitem #36 from normal test queue 
+2019-11-13T16:37:55.5190477+05:30:Thread#0:Scheduler: considering testitem #36 for thread 0
+2019-11-13T16:37:55.5190477+05:30:Thread#0:TestItem#36:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:37:55.5190477+05:30:Thread#0:TestItem#36:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:37:55.5190477+05:30:Thread#0:TestItem#36:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:37:55.5190477+05:30:Thread#0:Scheduler: using testitem #36 for thread 0
+2019-11-13T16:37:55.5190477+05:30:Thread#0:Scheduler: Test #36 is scheduled for thread
+2019-11-13T16:37:55.5190477+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:37:55.5190477+05:30:Thread#0: Test #35/0 is finished on thread #0 as Succeeded within 13.1711386 seconds
+2019-11-13T16:37:55.5190477+05:30:Thread#0: Test #36/0 is started on thread #0
+2019-11-13T16:37:55.5200485+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:37:55.5200485+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:37:55.5210474+05:30:Thread#0:B:Then Check whether the Account belong VA view or not
+2019-11-13T16:38:08.2425600+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongVAViewOrNot() (12.7s)
+2019-11-13T16:38:08.2425600+05:30:Thread#0:B:Then check the items for VA View
+2019-11-13T16:38:09.0380772+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id = 'contentWrapper']/div[2]/table/tbody/tr[1]/td[2]/div[8]//table/tbody/tr[@class = 'headerRow']/th[(text()='Child Account')]"}
+2019-11-13T16:38:09.0390760+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:09.0390760+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:09.1719967+05:30:Thread#0:TestItem#36:Scheduler: reschedule tests for testitem #36
+2019-11-13T16:38:09.1719967+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:38:09.1719967+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #36
+2019-11-13T16:38:09.1719967+05:30:Thread#0:Scheduler: considering testitem #36 for thread 0
+2019-11-13T16:38:09.1719967+05:30:Thread#0:TestItem#36:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:38:09.1719967+05:30:Thread#0:TestItem#36:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:38:09.1719967+05:30:Thread#0:TestItem#36:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:38:09.1719967+05:30:Thread#0:Scheduler: using testitem #36 for thread 0
+2019-11-13T16:38:09.1719967+05:30:Thread#0:Scheduler: Test #36 is scheduled for thread
+2019-11-13T16:38:09.1719967+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-11-13T16:38:09.1729951+05:30:Thread#0: Test #36/0 is finished on thread #0 as Failed within 13.6539474 seconds
+2019-11-13T16:38:09.1729951+05:30:Thread#0: Test #36/1 is started on thread #0
+2019-11-13T16:38:09.1739940+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:38:09.1739940+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:38:09.1739940+05:30:Thread#0:B:Then Check whether the Account belong VA view or not
+2019-11-13T16:38:21.6532351+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongVAViewOrNot() (12.5s)
+2019-11-13T16:38:21.6542348+05:30:Thread#0:B:Then check the items for VA View
+2019-11-13T16:38:22.0969667+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id = 'contentWrapper']/div[2]/table/tbody/tr[1]/td[2]/div[8]//table/tbody/tr[@class = 'headerRow']/th[(text()='Child Account')]"}
+2019-11-13T16:38:22.0969667+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:22.0979653+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:22.0979653+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:38:22.0979653+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #36
+2019-11-13T16:38:22.0979653+05:30:Thread#0:Scheduler: considering testitem #36 for thread 0
+2019-11-13T16:38:22.0979653+05:30:Thread#0:TestItem#36:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:38:22.0979653+05:30:Thread#0:TestItem#36:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:38:22.0979653+05:30:Thread#0:TestItem#36:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:38:22.0979653+05:30:Thread#0:Scheduler: using testitem #36 for thread 0
+2019-11-13T16:38:22.0979653+05:30:Thread#0:Scheduler: Test #36 is scheduled for thread
+2019-11-13T16:38:22.0979653+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-11-13T16:38:22.0989651+05:30:Thread#0: Test #36/1 is finished on thread #0 as Failed within 12.92597 seconds
+2019-11-13T16:38:22.0989651+05:30:Thread#0: Test #36/2 is started on thread #0
+2019-11-13T16:38:22.0989651+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:38:22.0989651+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:38:22.0989651+05:30:Thread#0:B:Then Check whether the Account belong VA view or not
+2019-11-13T16:38:34.5824173+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckWhetherTheAccountBelongVAViewOrNot() (12.5s)
+2019-11-13T16:38:34.5824173+05:30:Thread#0:B:Then check the items for VA View
+2019-11-13T16:38:35.2440172+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id = 'contentWrapper']/div[2]/table/tbody/tr[1]/td[2]/div[8]//table/tbody/tr[@class = 'headerRow']/th[(text()='Child Account')]"}
+2019-11-13T16:38:35.2440172+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:35.2440172+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:35.2440172+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:38:35.2440172+05:30:Thread#:Scheduler: testitem #37 from normal test queue 
+2019-11-13T16:38:35.2440172+05:30:Thread#0:Scheduler: considering testitem #37 for thread 0
+2019-11-13T16:38:35.2440172+05:30:Thread#0:TestItem#37:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:38:35.2440172+05:30:Thread#0:TestItem#37:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:38:35.2440172+05:30:Thread#0:TestItem#37:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:38:35.2440172+05:30:Thread#0:Scheduler: using testitem #37 for thread 0
+2019-11-13T16:38:35.2440172+05:30:Thread#0:Scheduler: Test #37 is scheduled for thread
+2019-11-13T16:38:35.2440172+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:38:35.2450162+05:30:Thread#0: Test #36/2 is finished on thread #0 as Failed within 13.1460511 seconds
+2019-11-13T16:38:35.2450162+05:30:Thread#0: Test #37/0 is started on thread #0
+2019-11-13T16:38:35.2460157+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:38:35.2460157+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:38:35.2460157+05:30:Thread#0:B:Then click on next button and Previous button
+2019-11-13T16:38:39.6885916+05:30:Thread#0:T:error: stale element reference: element is not attached to the page document
+2019-11-13T16:38:39.6885916+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:39.6885916+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:39.6885916+05:30:Thread#0:B:And click on each and every letter in the pagination
+2019-11-13T16:38:39.6895917+05:30:Thread#0:T:skipped because of previous errors
+2019-11-13T16:38:39.6905911+05:30:Thread#0:TestItem#37:Scheduler: reschedule tests for testitem #37
+2019-11-13T16:38:39.6905911+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:38:39.6905911+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #37
+2019-11-13T16:38:39.6905911+05:30:Thread#0:Scheduler: considering testitem #37 for thread 0
+2019-11-13T16:38:39.6915895+05:30:Thread#0:TestItem#37:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:38:39.6915895+05:30:Thread#0:TestItem#37:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:38:39.6915895+05:30:Thread#0:TestItem#37:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:38:39.6915895+05:30:Thread#0:Scheduler: using testitem #37 for thread 0
+2019-11-13T16:38:39.6915895+05:30:Thread#0:Scheduler: Test #37 is scheduled for thread
+2019-11-13T16:38:39.6915895+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-11-13T16:38:39.6915895+05:30:Thread#0: Test #37/0 is finished on thread #0 as Failed within 4.4465733 seconds
+2019-11-13T16:38:39.6915895+05:30:Thread#0: Test #37/1 is started on thread #0
+2019-11-13T16:38:39.6915895+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:38:39.6915895+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:38:39.6925887+05:30:Thread#0:B:Then click on next button and Previous button
+2019-11-13T16:38:39.7625489+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]"}
+2019-11-13T16:38:39.7625489+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:39.7625489+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:39.7625489+05:30:Thread#0:B:And click on each and every letter in the pagination
+2019-11-13T16:38:39.7625489+05:30:Thread#0:T:skipped because of previous errors
+2019-11-13T16:38:39.7635467+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:38:39.7635467+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #37
+2019-11-13T16:38:39.7635467+05:30:Thread#0:Scheduler: considering testitem #37 for thread 0
+2019-11-13T16:38:39.7635467+05:30:Thread#0:TestItem#37:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:38:39.7635467+05:30:Thread#0:TestItem#37:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:38:39.7635467+05:30:Thread#0:TestItem#37:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:38:39.7635467+05:30:Thread#0:Scheduler: using testitem #37 for thread 0
+2019-11-13T16:38:39.7635467+05:30:Thread#0:Scheduler: Test #37 is scheduled for thread
+2019-11-13T16:38:39.7635467+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-11-13T16:38:39.7645458+05:30:Thread#0: Test #37/1 is finished on thread #0 as Failed within 0.0729563 seconds
+2019-11-13T16:38:39.7645458+05:30:Thread#0: Test #37/2 is started on thread #0
+2019-11-13T16:38:39.7645458+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:38:39.7645458+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:38:39.7645458+05:30:Thread#0:B:Then click on next button and Previous button
+2019-11-13T16:38:39.7835357+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]/a[1]"}
+2019-11-13T16:38:39.7835357+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:39.7835357+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:39.7835357+05:30:Thread#0:B:And click on each and every letter in the pagination
+2019-11-13T16:38:39.7835357+05:30:Thread#0:T:skipped because of previous errors
+2019-11-13T16:38:39.7845347+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-11-13T16:38:39.7845347+05:30:Thread#:Scheduler: testitem #38 from normal test queue 
+2019-11-13T16:38:39.7845347+05:30:Thread#0:Scheduler: considering testitem #38 for thread 0
+2019-11-13T16:38:39.7845347+05:30:Thread#0:TestItem#38:testItemMatchesCurrentTestThread:UnSpecific
+2019-11-13T16:38:39.7845347+05:30:Thread#0:TestItem#38:runsOnOneOtherThreadSpecific:False
+2019-11-13T16:38:39.7845347+05:30:Thread#0:TestItem#38:runsOnOneOtherThreadUnspecific:False
+2019-11-13T16:38:39.7845347+05:30:Thread#0:Scheduler: using testitem #38 for thread 0
+2019-11-13T16:38:39.7845347+05:30:Thread#0:Scheduler: Test #38 is scheduled for thread
+2019-11-13T16:38:39.7845347+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-11-13T16:38:39.7845347+05:30:Thread#0: Test #37/2 is finished on thread #0 as Failed within 0.0199889 seconds
+2019-11-13T16:38:39.7845347+05:30:Thread#0: Test #38/0 is started on thread #0
+2019-11-13T16:38:39.7855329+05:30:Thread#0:B:Given user is in Accounts Page
+2019-11-13T16:38:39.7855329+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-11-13T16:38:39.7855329+05:30:Thread#0:B:Then Select a view
+2019-11-13T16:38:57.2251085+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenSelectAView() (17.4s)
+2019-11-13T16:38:57.2251085+05:30:Thread#0:B:And check the hover functionality of the items
+2019-11-13T16:38:57.8357387+05:30:Thread#0:T:error: no such element: Unable to locate element: {"method":"xpath","selector":"Account_Plans_Hover_Commercial"}
+2019-11-13T16:38:57.8357387+05:30:Thread#0:T:  (Session info: chrome=78.0.3904.97)
+2019-11-13T16:38:57.8357387+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-11-13T16:38:57.8357387+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-11-13T16:38:57.8367389+05:30:Thread#0:T:skipped because of previous errors
+2019-11-13T16:38:57.8367389+05:30:Cancelling because configured number of failures reached
+2019-11-13T16:38:57.8387382+05:30:Thread#0: Test #38/0 is finished on thread #0 as Failed within 18.0542035 seconds
+2019-11-13T16:38:57.9086950+05:30:Appdomain Disposed
+2019-11-13T16:38:57.9096944+05:30:Trying to cancel thread
+2019-11-13T16:38:57.9096944+05:30:Thread cancelled
+2019-11-13T16:38:57.9166904+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-13T16:38:57.9166904+05:30:Thread#:Scheduler: testitem #39 from normal test queue 
+2019-11-13T16:38:57.9166904+05:30:Thread#-1:Scheduler: considering testitem #39 for thread -1
+2019-11-13T16:38:57.9166904+05:30:Thread#-1:Scheduler: using testitem #39 for thread -1
+2019-11-13T16:38:57.9166904+05:30:Thread#-1:Scheduler: Test #39 is scheduled for thread
+2019-11-13T16:38:57.9166904+05:30:Thread#-1: Test #39/0 is started on thread #-1
+2019-11-13T16:38:57.9166904+05:30:Thread#-1: Test #39/0 is finished on thread #-1 as Skipped within 0 seconds
+2019-11-13T16:38:57.9166904+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-11-13T16:38:57.9166904+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-11-13T16:38:57.9166904+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-11-13T16:38:57.9226886+05:30;Thread#13;Info;test run finished
+2019-11-13T16:38:57.9236876+05:30;Thread#13;Info;publishing test results
+2019-11-13T16:38:58.1605427+05:30;Thread#13;Info;test results published
+2019-11-13T16:38:58.1605427+05:30;Thread#13;Info;generating reports
+2019-11-13T16:38:58.5073330+05:30;Thread#13;Info;Starting external report generation process
+2019-11-13T16:39:02.8091965+05:30;Thread#13;Info;Successfully generated reports.
+2019-11-13T16:39:02.8131935+05:30;Thread#13;Info;Successfully generated reports
+2019-11-13T16:39:02.8311821+05:30:Total: 36 (test executions: 40)
+2019-11-13T16:39:02.8321819+05:30:Succeeded: 32
+2019-11-13T16:39:02.8331813+05:30:Ignored: 0
+2019-11-13T16:39:02.8331813+05:30:Pending: 0
+2019-11-13T16:39:02.8331813+05:30:Skipped: 1
+2019-11-13T16:39:02.8341808+05:30:Failed: 3
+2019-11-13T16:39:02.8441742+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-11-13T16:39:02.8441742+05:30;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-13T162248.html'
+========== End of log file ==========

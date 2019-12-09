@@ -1,0 +1,126 @@
+﻿2019-10-07T16:12:46.7636208+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-10-07T16:12:46.7636208+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-10-07T16:12:46.7636208+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-10-07T16:12:46.8085937+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-07T16:12:46.8085937+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-10-07T16:12:46.8085937+05:30;VSTestExecutionThread;Info;Profile: 
+2019-10-07T16:12:46.8285817+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-07T161246.log
+2019-10-07T16:12:46.8405751+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-10-07T16:12:46.8465709+05:30;Thread#13;Info;Checking license
+2019-10-07T16:12:46.8575646+05:30;Thread#13;Info;Evaluation mode: test execution starts in 6 seconds... (this delay is removed in the registered version)
+2019-10-07T16:12:52.8591038+05:30;Thread#13;Info;Evaluation delay finished.
+2019-10-07T16:12:52.8690965+05:30;Thread#13;Info;License check completed
+2019-10-07T16:12:52.8700956+05:30;Thread#13;Info;starting test run
+2019-10-07T16:12:52.8850862+05:30;Thread#13;Info;Discovering target: Default
+2019-10-07T16:12:52.8860856+05:30;Thread#13;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-07T16:12:53.2285114+05:30:Appdomain Disposed
+2019-10-07T16:12:53.2285114+05:30;Thread#13;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-07T16:12:53.2295105+05:30:Test Suite Dump
+2019-10-07T16:12:53.2305093+05:30:#0: Unnamed project/ - 
+2019-10-07T16:12:53.2305093+05:30:#1: Default - 
+2019-10-07T16:12:53.2305093+05:30:#2: VeevaCRM - 
+2019-10-07T16:12:53.2305093+05:30:#3: Veeva CRM Account Page Feature - 
+2019-10-07T16:12:53.2694869+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-10-07T16:12:53.2694869+05:30:End: Test Suite Dump
+2019-10-07T16:12:53.2904729+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-07T16:12:53.2914725+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-10-07T16:12:53.2914725+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-10-07T16:12:53.2954699+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-07T16:12:53.2954699+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-10-07T16:12:53.2954699+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-10-07T16:12:53.2954699+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-10-07T16:12:53.2964695+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-10-07T16:12:53.2974687+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-10-07T16:12:53.3004672+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-10-07T16:12:53.3024662+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-07T16:12:53.3024662+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-07T16:12:53.3044656+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-10-07T16:12:53.3564341+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-10-07T16:12:53.4753627+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-10-07T16:12:53.4803598+05:30:Thread#0:T:-> Using default config
+2019-10-07T16:12:53.5283308+05:30:Thread#0:B:Given user opens browser
+2019-10-07T16:12:53.7125585+05:30:Thread#0:T:error: Could not find a part of the path 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\VeevaCRMAutomationPOM\Config\GlobalConfig.xml'.
+2019-10-07T16:12:53.7135580+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-10-07T16:12:53.7135580+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7135580+05:30:Thread#0:B:And user is on home page
+2019-10-07T16:12:53.7135580+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7135580+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-10-07T16:12:53.7145575+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7145575+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-10-07T16:12:53.7145575+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7145575+05:30:Thread#0:B:And verifies the Title of the Page
+2019-10-07T16:12:53.7145575+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7325465+05:30:Thread#0:TestItem#4:Scheduler: reschedule tests for testitem #4
+2019-10-07T16:12:53.7345452+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-07T16:12:53.7345452+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2019-10-07T16:12:53.7345452+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-10-07T16:12:53.7345452+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-07T16:12:53.7345452+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-10-07T16:12:53.7345452+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-10-07T16:12:53.7345452+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-10-07T16:12:53.7345452+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-10-07T16:12:53.7345452+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-10-07T16:12:53.7485369+05:30:Thread#0: Test #4/0 is finished on thread #0 as Failed within 0.3921028 seconds
+2019-10-07T16:12:53.7495363+05:30:Thread#0: Test #4/1 is started on thread #0
+2019-10-07T16:12:53.7505357+05:30:Thread#0:B:Given user opens browser
+2019-10-07T16:12:53.7515356+05:30:Thread#0:T:error: Could not find a part of the path 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\VeevaCRMAutomationPOM\Config\GlobalConfig.xml'.
+2019-10-07T16:12:53.7515356+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-10-07T16:12:53.7515356+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7515356+05:30:Thread#0:B:And user is on home page
+2019-10-07T16:12:53.7515356+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7525347+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-10-07T16:12:53.7525347+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7525347+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-10-07T16:12:53.7525347+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7525347+05:30:Thread#0:B:And verifies the Title of the Page
+2019-10-07T16:12:53.7525347+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7535347+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-07T16:12:53.7535347+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2019-10-07T16:12:53.7535347+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-10-07T16:12:53.7535347+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-07T16:12:53.7535347+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-10-07T16:12:53.7535347+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-10-07T16:12:53.7535347+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-10-07T16:12:53.7535347+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-10-07T16:12:53.7535347+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-10-07T16:12:53.7535347+05:30:Thread#0: Test #4/1 is finished on thread #0 as Failed within 0.0039984 seconds
+2019-10-07T16:12:53.7535347+05:30:Thread#0: Test #4/2 is started on thread #0
+2019-10-07T16:12:53.7545334+05:30:Thread#0:B:Given user opens browser
+2019-10-07T16:12:53.7545334+05:30:Thread#0:T:error: Could not find a part of the path 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\VeevaCRMAutomationPOM\Config\GlobalConfig.xml'.
+2019-10-07T16:12:53.7545334+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-10-07T16:12:53.7555331+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7555331+05:30:Thread#0:B:And user is on home page
+2019-10-07T16:12:53.7555331+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7555331+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-10-07T16:12:53.7555331+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7555331+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-10-07T16:12:53.7565325+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7565325+05:30:Thread#0:B:And verifies the Title of the Page
+2019-10-07T16:12:53.7565325+05:30:Thread#0:T:skipped because of previous errors
+2019-10-07T16:12:53.7565325+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-07T16:12:53.7565325+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-10-07T16:12:53.7565325+05:30:Thread#0:Scheduler: enumerator for thread is at end
+2019-10-07T16:12:53.7565325+05:30:Thread#0:Scheduler: No more tests for thread
+2019-10-07T16:12:53.7585309+05:30:Thread#0: Test #4/2 is finished on thread #0 as Failed within 0.0049962 seconds
+2019-10-07T16:12:53.7699991+05:30:Appdomain Disposed
+2019-10-07T16:12:53.7719979+05:30:Trying to cancel thread
+2019-10-07T16:12:53.7719979+05:30:Thread cancelled
+2019-10-07T16:12:53.7769949+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-10-07T16:12:53.7769949+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-10-07T16:12:53.7769949+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-10-07T16:12:53.7819920+05:30;Thread#13;Info;test run finished
+2019-10-07T16:12:53.7819920+05:30;Thread#13;Info;publishing test results
+2019-10-07T16:12:53.7869890+05:30;Thread#13;Info;test results published
+2019-10-07T16:12:53.7879887+05:30;Thread#13;Info;generating reports
+2019-10-07T16:12:53.9169110+05:30;Thread#13;Info;Starting external report generation process
+2019-10-07T16:12:55.6528672+05:30;Thread#13;Info;Successfully generated reports.
+2019-10-07T16:12:55.6588635+05:30;Thread#13;Info;Successfully generated reports
+2019-10-07T16:12:55.6658590+05:30:Total: 1 (test executions: 3)
+2019-10-07T16:12:55.6678585+05:30:Succeeded: 0
+2019-10-07T16:12:55.6688580+05:30:Ignored: 0
+2019-10-07T16:12:55.6688580+05:30:Pending: 0
+2019-10-07T16:12:55.6688580+05:30:Skipped: 0
+2019-10-07T16:12:55.6698571+05:30:Failed: 1
+2019-10-07T16:12:55.6788525+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-10-07T16:12:55.6788525+05:30;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-07T161246.html'
+========== End of log file ==========

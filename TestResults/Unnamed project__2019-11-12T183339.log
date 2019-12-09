@@ -1,0 +1,10 @@
+﻿2019-11-12T18:33:38.9705263+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-11-12T18:33:38.9705263+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-11-12T18:33:38.9705263+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-11-12T18:33:39.2113808+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-11-12T18:33:39.2113808+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-11-12T18:33:39.2113808+05:30;VSTestExecutionThread;Info;Profile: 
+2019-11-12T18:33:39.2893334+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-11-12T183339.log
+2019-11-12T18:33:39.3413020+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-11-12T18:33:39.5092001+05:30;Thread#14;Info;Checking license
+2019-11-12T18:33:42.9441157+05:30;Thread#14;Info;Evaluation mode: test execution starts in 10 seconds... (this delay is removed in the registered version)

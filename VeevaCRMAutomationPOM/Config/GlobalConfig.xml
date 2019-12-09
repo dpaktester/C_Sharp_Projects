@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VeevaCRMAutomation>
+  <RunSettings>
+    <Aut>https://test.salesforce.com/</Aut>
+    <Browser>Chrome</Browser>
+    <TestType>SmokeTest</TestType>
+    <IsLog>Y</IsLog>
+    <LogPath>E:\C_Sharp_Logs</LogPath>
+    <BuildName>Veeva Automation Framework</BuildName>
+    <IsReport>N</IsReport>
+    <UserName>BOT QA Veeva</UserName>
+    <Technology>Selenium</Technology>
+    <Start_Time>3:40 PM</Start_Time>
+    <End_Time>4:40 PM</End_Time>
+    <SubField>Testing the Subject Field</SubField>
+  </RunSettings>
+</VeevaCRMAutomation>

@@ -1,0 +1,138 @@
+﻿2019-10-09T16:13:24.5089077+05:30;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-10-09T16:13:24.5089077+05:30;VSTestExecutionThread;Info;SpecFlow+Runner 3.0.391 in Framework clr40 in x86 mode execution started
+2019-10-09T16:13:24.5089077+05:30;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\dmahapatra\source\repos\VeevaCRM\packages\SpecRun.Runner.3.0.391\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-10-09T16:13:24.5628744+05:30;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-09T16:13:24.5628744+05:30;VSTestExecutionThread;Info;Output folder configured to "C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults" (default)
+2019-10-09T16:13:24.5628744+05:30;VSTestExecutionThread;Info;Profile: 
+2019-10-09T16:13:24.5848617+05:30;VSTestExecutionThread;Info;Log file path: C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-09T161324.log
+2019-10-09T16:13:24.5978535+05:30;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-10-09T16:13:24.6028503+05:30;Thread#14;Info;Checking license
+2019-10-09T16:13:24.6148433+05:30;Thread#14;Info;Evaluation mode: test execution starts in 10 seconds... (this delay is removed in the registered version)
+2019-10-09T16:13:34.6156843+05:30;Thread#14;Info;Evaluation delay finished.
+2019-10-09T16:13:34.6256829+05:30;Thread#14;Info;License check completed
+2019-10-09T16:13:34.6256829+05:30;Thread#14;Info;starting test run
+2019-10-09T16:13:34.6396758+05:30;Thread#14;Info;Discovering target: Default
+2019-10-09T16:13:34.6406757+05:30;Thread#14;Info;Discovering tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-09T16:13:35.0084488+05:30:Appdomain Disposed
+2019-10-09T16:13:35.0084488+05:30;Thread#14;Info;Discovered tests from assembly: C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\VeevaCRM.dll
+2019-10-09T16:13:35.0094476+05:30:Test Suite Dump
+2019-10-09T16:13:35.0104470+05:30:#0: Unnamed project/ - 
+2019-10-09T16:13:35.0114460+05:30:#1: Default - 
+2019-10-09T16:13:35.0114460+05:30:#2: VeevaCRM - 
+2019-10-09T16:13:35.0114460+05:30:#3: Veeva CRM Account Page Feature - 
+2019-10-09T16:13:35.0444261+05:30:#4: Checking the the Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+Accounts+page
+2019-10-09T16:13:35.0444261+05:30:#5: Checking the the veiw drop down in Accounts page - TestAssembly:VeevaCRM/Feature:Veeva+CRM+Account+Page+Feature/Scenario:Checking+the+the+veiw+drop+down+in+Accounts+page
+2019-10-09T16:13:35.0444261+05:30:End: Test Suite Dump
+2019-10-09T16:13:35.0644150+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T16:13:35.0664134+05:30:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-10-09T16:13:35.0664134+05:30:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-10-09T16:13:35.0704109+05:30:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T16:13:35.0704109+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-10-09T16:13:35.0704109+05:30:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-10-09T16:13:35.0704109+05:30:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-10-09T16:13:35.0714103+05:30:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-10-09T16:13:35.0724097+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-10-09T16:13:35.0754070+05:30:Thread #0: creating new test thread executor for VeevaCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-10-09T16:13:35.0774057+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-09T16:13:35.0774057+05:30:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-10-09T16:13:35.0784055+05:30:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-10-09T16:13:35.1298965+05:30:Thread#0: Test #4/0 is started on thread #0
+2019-10-09T16:13:35.2518208+05:30:Thread#0:T:-> Loading plugin C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRM\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-10-09T16:13:35.2568179+05:30:Thread#0:T:-> Using default config
+2019-10-09T16:13:35.3047885+05:30:Thread#0:B:Given user opens browser
+2019-10-09T16:13:44.2754784+05:30:Thread#0:T:done: LoginStepDefination.GivenUserOpensBrowser() (8.9s)
+2019-10-09T16:13:44.2774775+05:30:Thread#0:B:Then user entered into the application by using valid login credentials
+2019-10-09T16:13:48.4282881+05:30:Thread#0:T:done: LoginStepDefination.ThenUserEnteredIntoTheApplicationByUsingValidLoginCredentials() (4.2s)
+2019-10-09T16:13:48.4282881+05:30:Thread#0:B:And user is on home page
+2019-10-09T16:13:56.5092368+05:30:Thread#0:T:done: LoginStepDefination.ThenUserIsOnHomePage() (8.1s)
+2019-10-09T16:13:56.5092368+05:30:Thread#0:B:Then Check if call is associated with the user or not
+2019-10-09T16:14:03.7690961+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckIfCallIsAssociatedWithTheUserOrNot() (7.3s)
+2019-10-09T16:14:03.7690961+05:30:Thread#0:B:Then user clicks on my Accounts
+2019-10-09T16:14:11.1632336+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenUserClicksOnMyAccounts() (7.4s)
+2019-10-09T16:14:11.1632336+05:30:Thread#0:B:And verifies the Title of the Page
+2019-10-09T16:14:11.2112043+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenVerifiesTheTitleOfThePage() (0.0s)
+2019-10-09T16:14:11.2201988+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T16:14:11.2201988+05:30:Thread#:Scheduler: testitem #5 from normal test queue 
+2019-10-09T16:14:11.2201988+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-10-09T16:14:11.2201988+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T16:14:11.2201988+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-10-09T16:14:11.2201988+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-10-09T16:14:11.2201988+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-10-09T16:14:11.2201988+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-10-09T16:14:11.2201988+05:30:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-10-09T16:14:11.2341902+05:30:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 36.1042937 seconds
+2019-10-09T16:14:11.2351894+05:30:Thread#0: Test #5/0 is started on thread #0
+2019-10-09T16:14:11.2361886+05:30:Thread#0:B:Given user is in Accounts Page
+2019-10-09T16:14:11.2371882+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-10-09T16:14:11.2371882+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-10-09T16:14:11.6237927+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheViewDropDownValuesAgainstRequirement() (0.4s)
+2019-10-09T16:14:11.6247869+05:30:Thread#0:B:And Select each Drop down value one by one
+2019-10-09T16:14:18.2197511+05:30:Thread#0:T:error: stale element reference: element is not attached to the page document
+2019-10-09T16:14:18.2197511+05:30:Thread#0:T:  (Session info: chrome=77.0.3865.90)
+2019-10-09T16:14:18.2197511+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-10-09T16:14:18.2417362+05:30:Thread#0:TestItem#5:Scheduler: reschedule tests for testitem #5
+2019-10-09T16:14:18.2417362+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T16:14:18.2417362+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2019-10-09T16:14:18.2417362+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-10-09T16:14:18.2417362+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T16:14:18.2417362+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-10-09T16:14:18.2417362+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-10-09T16:14:18.2417362+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-10-09T16:14:18.2417362+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-10-09T16:14:18.2417362+05:30:Thread#0:Scheduler: with testItemExecutionIndex 1
+2019-10-09T16:14:18.2427351+05:30:Thread#0: Test #5/0 is finished on thread #0 as Failed within 7.0075457 seconds
+2019-10-09T16:14:18.2427351+05:30:Thread#0: Test #5/1 is started on thread #0
+2019-10-09T16:14:18.2427351+05:30:Thread#0:B:Given user is in Accounts Page
+2019-10-09T16:14:18.2437344+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-10-09T16:14:18.2437344+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-10-09T16:14:18.6454890+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheViewDropDownValuesAgainstRequirement() (0.4s)
+2019-10-09T16:14:18.6454890+05:30:Thread#0:B:And Select each Drop down value one by one
+2019-10-09T16:14:21.3574315+05:30:Thread#0:T:error: stale element reference: element is not attached to the page document
+2019-10-09T16:14:21.3594330+05:30:Thread#0:T:  (Session info: chrome=77.0.3865.90)
+2019-10-09T16:14:21.3594330+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-10-09T16:14:21.3604308+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T16:14:21.3604308+05:30:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2019-10-09T16:14:21.3604308+05:30:Thread#0:Scheduler: considering testitem #5 for thread 0
+2019-10-09T16:14:21.3604308+05:30:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2019-10-09T16:14:21.3604308+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2019-10-09T16:14:21.3604308+05:30:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2019-10-09T16:14:21.3604308+05:30:Thread#0:Scheduler: using testitem #5 for thread 0
+2019-10-09T16:14:21.3604308+05:30:Thread#0:Scheduler: Test #5 is scheduled for thread
+2019-10-09T16:14:21.3604308+05:30:Thread#0:Scheduler: with testItemExecutionIndex 2
+2019-10-09T16:14:21.3614300+05:30:Thread#0: Test #5/1 is finished on thread #0 as Failed within 3.1186949 seconds
+2019-10-09T16:14:21.3614300+05:30:Thread#0: Test #5/2 is started on thread #0
+2019-10-09T16:14:21.3614300+05:30:Thread#0:B:Given user is in Accounts Page
+2019-10-09T16:14:21.3614300+05:30:Thread#0:T:done: AccountsPageStepDefination.GivenUserIsInAccountsPage() (0.0s)
+2019-10-09T16:14:21.3614300+05:30:Thread#0:B:Then Check the view Drop down values against Requirement
+2019-10-09T16:14:21.7402125+05:30:Thread#0:T:done: AccountsPageStepDefination.ThenCheckTheViewDropDownValuesAgainstRequirement() (0.4s)
+2019-10-09T16:14:21.7402125+05:30:Thread#0:B:And Select each Drop down value one by one
+2019-10-09T16:14:24.4908008+05:30:Thread#0:T:error: stale element reference: element is not attached to the page document
+2019-10-09T16:14:24.4908008+05:30:Thread#0:T:  (Session info: chrome=77.0.3865.90)
+2019-10-09T16:14:24.4908008+05:30:Thread#0:T:  (Driver info: chromedriver=2.39.562718 (9a2698cba08cf5a471a29d30c8b3e12becabb0e9),platform=Windows NT 10.0.17763 x86_64)
+2019-10-09T16:14:24.4917851+05:30:Thread#0:Scheduler: get next test for thread 0
+2019-10-09T16:14:24.4917851+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-10-09T16:14:24.4917851+05:30:Thread#0:Scheduler: enumerator for thread is at end
+2019-10-09T16:14:24.4917851+05:30:Thread#0:Scheduler: No more tests for thread
+2019-10-09T16:14:24.4937857+05:30:Thread#0: Test #5/2 is finished on thread #0 as Failed within 3.1323557 seconds
+2019-10-09T16:14:24.5187667+05:30:Appdomain Disposed
+2019-10-09T16:14:24.5197659+05:30:Trying to cancel thread
+2019-10-09T16:14:24.5197659+05:30:Thread cancelled
+2019-10-09T16:14:24.5257621+05:30:Thread#-1:Scheduler: get next test for thread -1
+2019-10-09T16:14:24.5257621+05:30:Thread#:Scheduler: at the end of normal test queue
+2019-10-09T16:14:24.5257621+05:30:Thread#-1:Scheduler: enumerator for thread is at end
+2019-10-09T16:14:24.5307592+05:30;Thread#14;Info;test run finished
+2019-10-09T16:14:24.5307592+05:30;Thread#14;Info;publishing test results
+2019-10-09T16:14:24.5377553+05:30;Thread#14;Info;test results published
+2019-10-09T16:14:24.5377553+05:30;Thread#14;Info;generating reports
+2019-10-09T16:14:24.6676755+05:30;Thread#14;Info;Starting external report generation process
+2019-10-09T16:14:26.4122844+05:30;Thread#14;Info;Successfully generated reports.
+2019-10-09T16:14:26.4132843+05:30;Thread#14;Info;Successfully generated reports
+2019-10-09T16:14:26.4212788+05:30:Total: 2 (test executions: 4)
+2019-10-09T16:14:26.4232776+05:30:Succeeded: 1
+2019-10-09T16:14:26.4232776+05:30:Ignored: 0
+2019-10-09T16:14:26.4242764+05:30:Pending: 0
+2019-10-09T16:14:26.4242764+05:30:Skipped: 0
+2019-10-09T16:14:26.4242764+05:30:Failed: 1
+2019-10-09T16:14:26.4332724+05:30;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-10-09T16:14:26.4332724+05:30;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\dmahapatra\source\repos\VeevaCRM\TestResults\Unnamed project__2019-10-09T161324.html'
+========== End of log file ==========

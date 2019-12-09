@@ -1,0 +1,4 @@
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMMSTestProject\obj\Debug\netcoreapp2.1\VeevaCRMMSTestProject.csprojAssemblyReference.cache
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMMSTestProject\obj\Debug\netcoreapp2.1\VeevaCRMMSTestProject.csproj.CoreCompileInputs.cache
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMMSTestProject\obj\Debug\netcoreapp2.1\VeevaCRMMSTestProject.AssemblyInfoInputs.cache
+C:\Users\dmahapatra\source\repos\VeevaCRM\VeevaCRMMSTestProject\obj\Debug\netcoreapp2.1\VeevaCRMMSTestProject.AssemblyInfo.cs
